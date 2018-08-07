@@ -1,0 +1,79 @@
+header {
+	margin-bottom: 50px;
+}
+input {
+	margin-left: 10px;
+	width: 250px;
+	border: none;
+	padding: 10px 10px;
+	font-size: 15px;
+	margin-bottom: 15px;
+}
+
+.title {
+	font-size: 50px;
+	text-align: center;
+	position: relative;
+	color: var(--main-color-mute);
+	animation-name: dropText;
+	transition: transform;
+	animation-duration: 5s;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+}
+
+.title::after {
+	content: url("../../../images/speech-bubbles.svg");
+	position: absolute;
+}
+
+@keyframes dropText {
+	0% {transform: scale(1); text-shadow: 2px 2px 2px var(--main-color-red);}
+	50% {transform: scale(1.5); text-shadow: 4px 4px 2px var(--main-color-red)}
+	100% {transform: scale(1); text-shadow: 2px 2px 2px var(--main-color-red)}	
+};
+
+.log-in {
+	padding: 4%;
+}
+
+.or {
+	color: var(--main-color-gray);
+	font-weight: 200;
+	font-size: 20px;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+}
+
+.flex {
+	display: flex;
+}
+
+.column {
+	flex-direction: column;
+	 -ms-flex-direction: column;
+}
+
+.align-center {
+	align-items: center;
+}
+
+.align-end {
+	align-items: flex-end;
+}
+
+
+@media screen and (max-width: 600px) {
+	.title {
+		font-size: 30px;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	.title::after {
+		content: "";
+	}
+	input {
+		width: 100%;
+	}
+}

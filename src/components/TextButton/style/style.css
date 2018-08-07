@@ -1,0 +1,8 @@
+.text-button {
+	background-color: var(--main-color-red);
+	color: var(--main-color-mute);
+	max-width: 160px;
+	border-radius: 5px;
+	text-transform: uppercase;
+	padding: 10px 20px;
+  }

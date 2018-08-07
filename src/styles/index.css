@@ -1,5 +1,39 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  --main-color-blue: #6ed3cf;
+  --main-color-lila: #9068be;
+  --main-color-mute: #e1e8f0;
+  --main-color-red: #e62739;
+  --main-color-white: #ffffff;
+  --main-color-gray: #505050;
+  background: linear-gradient(
+                     rgba(20,20,20, .6), 
+                     rgba(20,20,20, .6)),
+                     url("../images/people.jpg");
+ background-attachment: fixed;
 }
+
+button {
+  outline: none;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.row {
+  width: 100%;
+}
+
+.col-12 {
+  width:  100%;
+}
+
