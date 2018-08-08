@@ -2,10 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import "./style/style.css";
 
-function TextButton({text, style}) {
-	const customClass = style || ""; 
+function TextButton({text, customClasses, onClickHandler}) {
 	return (
-		<button className={`text-button ${customClass}`}>
+		<button className={`text-button ${customClasses || ""}`} onClick={onClickHandler}>
 			{text}
 		</button>
 	);

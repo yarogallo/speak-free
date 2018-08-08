@@ -1,0 +1,62 @@
+.new-speaker-form {
+	display: grid;
+	grid-column-gap: 10px;
+	grid-template-columns: auto;
+	color: var(--main-color-gray);
+	width: 100%;
+}
+
+.form-title {
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.new-speaker-form label {
+	margin-bottom: 5px;
+}
+
+.label {
+	vertical-align: -50%;
+	text-transform: capitalize;
+	letter-spacing: 0.5px;
+	font-weight: 600;
+}
+
+.submit-button {
+	background-color: var(--main-color-lila);
+	margin: 0 auto;
+}
+
+@media screen and (max-width: 450px) {
+	.new-speaker-form input {
+		width: 90%;
+		margin: 0 auto;
+		margin-bottom: 15px;
+	}
+	
+	.new-speaker-form label {
+		text-align: center;
+	}
+}
+
+@media screen and (min-width: 451px) {
+	.new-speaker-form {
+		grid-template-columns: 150px auto;
+	}
+	
+	.new-speaker-form label {
+		grid-column-start: 1;
+		grid-column-end: 2;
+		text-align: right;
+	}
+	
+	.new-speaker-form input {
+		grid-column-start: 2;
+		grid-column-end: 3;
+	}
+	
+	.form-title, .submit-button {
+		grid-column-start: 1;
+		grid-column-end: 3;
+	}
+}

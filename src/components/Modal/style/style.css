@@ -1,0 +1,44 @@
+.modal {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.overlay {
+	background-color: var(--main-color-mute);
+	width: 100%;
+	border-radius: 5px;
+	box-shadow: 2px 2px 2px 1.5px var(--main-color-gray);
+	padding: 10px;
+	animation: fadeIn 1s ease-in;
+}
+
+.overlay.close {
+	opacity: 0;
+	transition: opacity 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+	0% {opacity: 0;}
+	50% {opacity: 0.5}
+	100% {opacity: 1;}
+}
+
+.closeButton {
+	font-size: 25px;
+	font-weight: 700;
+	border: 0;
+	background-color: var(--main-color-mute);
+	color: var(--main-color-gray);
+}
+
+@media screen and (min-width: 499px) {
+	.overlay {
+		width: 600px;		
+	}
+}

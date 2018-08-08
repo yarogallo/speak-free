@@ -17,7 +17,7 @@ input {
 	color: var(--main-color-mute);
 	animation-name: dropText;
 	transition: transform;
-	animation-duration: 5s;
+	animation-duration: 2s;
 	animation-iteration-count: 1;
 	animation-fill-mode: forwards;
 }
@@ -29,7 +29,7 @@ input {
 
 @keyframes dropText {
 	0% {transform: scale(1); text-shadow: 2px 2px 2px var(--main-color-red);}
-	50% {transform: scale(1.5); text-shadow: 4px 4px 2px var(--main-color-red)}
+	50% {transform: scale(1.2); text-shadow: 4px 4px 2px var(--main-color-red)}
 	100% {transform: scale(1); text-shadow: 2px 2px 2px var(--main-color-red)}	
 };
 
