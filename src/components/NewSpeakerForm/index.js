@@ -1,15 +1,39 @@
 import React, { Component } from 'react';
 import TextButton from '../TextButton';
+import PopUp from '../PopUp';
 import './style/style.css';
 
-function isValidPassword(pass) {
-	"use strict";
-	const symb = /\W/;
-	const numb = /[0-9]/;
-	const upper = /[A-Z]/;
-	
-	return pass.length >= 5 && symb.test(pass) && numb.test(pass) && upper.test(pass);
+function validatePassword(pass) {
+	return pass.length >= 5 && (/\W/).test(pass) && (/[0-9]/).test(pass) && (/[A-Z]/).test(pass);
 }
+
+function validateName(name) {
+	return name.length > 0;
+}
+
+function validateEmail(email) {
+	return email.length > 0 && email.match(/@{1}/) && email.slice(0, email.indexOf('@')).length > 0 && email.slice(email.indexOf('@') + 1).length > 0;
+}
+
+function validatePhone(phone) {
+	return  phone.length > 0 && phone.match(/[0-9]/g).length === 10;
+}
+
+function validateRepass(pass, repass) {
+	return repass.length > 0 && pass === repass;
+}
+
+function validate(name, lastname, mail, phone, password,reppass) {
+	return {
+		name: validateName(name),
+		lastname: validateName(lastname),
+		mail: validateEmail(mail),
+		phone: validatePhone(phone),
+		password: validatePassword(password),
+		reppass: validateRepass(password, reppass)
+	};
+}
+
 class NewSpeakerForm extends Component {
 	constructor(props) {
 		super(props);
@@ -19,27 +43,67 @@ class NewSpeakerForm extends Component {
 			mail: '',
 			phone: '',
 			password: '',
-			reppass: ''
+			reppass: '',
+			renderPopUp: false,
+			touchedInput: {
+				name: false,
+				lastname: false,
+				mail: false,
+				phone: false,
+				password: false,
+				reppass: false,	
+			},
+
+		};
+		this.inputRef = null;
+		this.setInputRef = elem => {
+			this.inputRef = elem;
 		};
 		this.fillFormHandler = this.fillFormHandler.bind(this);
 		this.submitInfo = this.submitInfo.bind(this);
+		this.togglePopUp = this.togglePopUp.bind(this);
+		this.handleBlur = this.handleBlur.bind(this);
 	}
 	
-	submitInfo(evt) {
-		const pass = this.state.password;
-		const repPass = this.state.reppass;
+	componentDidMount() {
+		if(this.inputRef) {
+			this.inputRef.focus();
+		}
+	}
+	
+	submitInfo(evt) {	
 		evt.preventDefault();
-		return isValidPassword(pass) && pass === repPass;
 	}
 	
-	fillFormHandler(evt) {
-		const elem = evt.target.name;
-		const value = evt.target.value;
-		this.setState({
-			[elem]: value
-		});	
+	fillFormHandler(field) {
+		return (evt) => {
+			const value = evt.target.value;
+			this.setState({
+				[field]: value
+			})
+		};
 	}
 	
+	handleBlur(field) {
+		return () => {
+			if (!this.state.touchedInput[field]) {
+				this.setState({
+					touchedInput: {...this.state.touchedInput, [field]: true}
+				});
+			}
+		};	
+	}
+	
+	togglePopUp() {
+		this.setState( prevstate => ({
+			renderPopUp: !prevstate.renderPopUp
+		}));
+	}
+	
+	shouldMarkError(field, errObj) {
+		return !errObj[field] && this.state.touchedInput[field];
+	}
+
 	render() {
 		const {
 			name, 
@@ -47,33 +111,68 @@ class NewSpeakerForm extends Component {
 			mail,
 			phone,
 			password,
-			reppass
+			reppass,
+			renderPopUp
 		} = this.state;
+		
+		const err = validate(name, lastname, mail, phone, password, reppass);
+		const enabledButton = Object.keys(err).some(elem => !err[elem]);
 		
 		return(
 			<form className="new-speaker-form" onSubmit={this.submitInfo}>
 				<h2 className="form-title">Create you account</h2>
 				
 				<label htmlFor="name"><span className="label">name:</span></label>			
-				<input id="name" type="text" placeholder="Jonh" value={name} onChange={this.fillFormHandler} name="name"/>
+				<input id="name" type="text" placeholder="Jonh" 
+					value={name} 
+					onChange={this.fillFormHandler("name")}
+					ref={this.setInputRef} 
+					onBlur={this.handleBlur("name")}
+					className={this.shouldMarkError("name", err) ? "error" : ""}/>
 				
 				<label htmlFor="lastname"><span className="label">last name:</span></label>
-				<input id="lastname" type="text" placeholder="Doe" value={lastname} onChange={this.fillFormHandler} name="lastname"/>
+				<input id="lastname" type="text" placeholder="Doe" 
+					value={lastname} 
+					onChange={this.fillFormHandler("lastname")}
+					onBlur={this.handleBlur("lastname")}
+					className={this.shouldMarkError("lastname", err) ? "error" : ""}/>
 				
 				<label htmlFor="mail"><span className="label">email:</span></label>
-				<input id="mail" type="email" placeholder="jonh@gmail.com" value={mail} onChange={this.fillFormHandler} name="mail"/>
+				<input id="mail" type="email" placeholder="jonh@gmail.com" 
+					value={mail} 
+					onChange={this.fillFormHandler("mail")}
+					onBlur={this.handleBlur("mail")}
+					className={this.shouldMarkError("mail", err) ? "error" : ""}/>
 				
 				<label htmlFor="phone"><span className="label">phone:</span></label>
-				<input id="phone" type="number" placeholder="555-555-5555" value={phone} onChange={this.fillFormHandler} name="phone"/>
+				<input id="phone" type="number" placeholder="555-555-5555" 
+					value={phone} 
+					onChange={this.fillFormHandler("phone")}
+					onBlur={this.handleBlur("phone")}
+					className={this.shouldMarkError("phone", err) ? "error" : ""}/>
 				
 				<label htmlFor="pass"><span className="label">password:</span></label>
-				<input id="pass" type="password" placeholder="Th1sIs1523@3" 
-					value={password} onChange={this.fillFormHandler} name="password"/>
+				<div className="popup-container">
+					<PopUp visibility={renderPopUp} text="number, uppercase, special characters" customClass="popUp-position" closePopUp={this.togglePopUp}/>
+					<input id="pass" type="password" placeholder="Th1sIs1523@3" 
+						value={password} 
+						onChange={this.fillFormHandler("password")}
+						onFocus={this.togglePopUp}
+						onBlur={() => {
+							this.handleBlur("password");
+							this.togglePopUp();
+						}}
+						className={this.shouldMarkError("password", err) ? "error" : ""}/>
+				</div>
 				
 				<label htmlFor="rep-pass"><span className="label">repeat password:</span></label> 
-				<input id="rep-pass" type="password" placeholder="Th1sIs1523@3" value={reppass} onChange={this.fillFormHandler} name="reppass"/>
+				<input id="rep-pass" type="password" placeholder="Th1sIs1523@3" 
+					value={reppass} 
+					onChange={this.fillFormHandler("reppass")}
+					onBlur={this.handleBlur("reppass")}
+					className={this.shouldMarkError("reppass", err) ? "error" : ""}/>
 				
-				<TextButton text="create" customClasses="submit-button" onClickHandler={this.submitInfo}/>
+				<TextButton text="create" customClasses="submit-button" onClickHandler={this.submitInfo} disabled={enabledButton}/>
 			</form>
 		);
 	}

@@ -27,6 +27,19 @@
 	margin: 0 auto;
 }
 
+.popup-container {
+	position: relative;
+}
+
+.popUp-position {
+	top: -150%;
+	right: 20px;
+}
+
+.error {
+	border: 1px solid var(--main-color-red);
+}
+
 @media screen and (max-width: 450px) {
 	.new-speaker-form input {
 		width: 90%;
@@ -36,6 +49,11 @@
 	
 	.new-speaker-form label {
 		text-align: center;
+	}
+	
+	.popUp-position {
+		top: calc(100% - 42%);
+		right: 0;
 	}
 }
 
