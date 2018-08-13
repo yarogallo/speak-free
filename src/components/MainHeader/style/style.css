@@ -1,6 +1,6 @@
 .main-header {
 	background-color: var(--main-color-mute);
-	position: fixed;
+	position: sticky;
 	box-shadow: 2px 2px 2px 2px var(--main-color-gray);
 }
 

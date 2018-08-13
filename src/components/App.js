@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import LogIn from './LogIn';
-import MainHeader from './MainHeader';
+import MainContainer from './MainContainer';
 
 class App extends Component {
   render() {
     return (
-      <MainHeader/>
+      <MainContainer/>
     );
   }
 }
