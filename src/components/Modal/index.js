@@ -59,11 +59,13 @@ class Modal extends Component {
 }
 
 Modal.propTypes = {
-	onCloseModal: PropTypes.func.isRequired
+	onCloseModal: PropTypes.func,
+	children: PropTypes.element
 };
 
 Modal.defaultProps = {
-	onCloseModal: () => {}
+	onCloseModal: () => {},
+	children: null,
 };
 
 export default Modal;

@@ -1,0 +1,28 @@
+.search-container {
+	display: inline-block;
+	position: relative;
+}
+
+.basicSearchInput {
+	border-radius: 21px;
+	font-size: 15px;
+	background-color: var(--main-color-white);
+	height: 20px;
+	width: 200px;
+	padding-left: 20px;
+	margin: 0 auto;
+}
+
+.basicSearchInput::placeholder {
+	text-transform: capitalize;
+	color: var(--main-color-light-gray);
+}
+
+.search-button {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	background-color: var(--main-color-white);
+	border: transparent;
+	border-radius: 50%;
+}

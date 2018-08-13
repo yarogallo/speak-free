@@ -11,6 +11,7 @@ body {
   --main-color-red: #e62739;
   --main-color-white: #ffffff;
   --main-color-gray: #505050;
+  --main-color-light-gray: #979795;
   background: linear-gradient(
                      rgba(20,20,20, .6), 
                      rgba(20,20,20, .6)),
