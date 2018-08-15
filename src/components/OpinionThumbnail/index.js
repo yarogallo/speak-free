@@ -19,9 +19,11 @@ class OpinionThumbnail extends Component {
 					<h2><span className="subject">subject:</span>{subject}</h2>
 					<p className="date">{date}</p>
 				</header>
+				<div className="br"></div>
 				<div className="opinion-container">
 					<p><span className="opinion">opinion:</span>{opinion}</p>
 				</div>
+				<div className="br"></div>
 				<footer>
 					<OpinionNav numComments={numComments} numLikes={numLikes}/>
 					<div className="separator"></div>
