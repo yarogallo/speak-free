@@ -15,7 +15,7 @@ class MainHeader extends Component {
 						<a href="#"><span>say something</span></a>
 					</nav>
 					<div className="logo center">
-						<img src={Logo}/>
+						<img src={Logo} alt="main logo"/>
 					</div>
 					<div  className="search center">	
 						<BasicSearchInput text="search opinions" onPressSearch={onSearchOpinions}/>

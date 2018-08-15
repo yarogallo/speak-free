@@ -1,0 +1,56 @@
+.opinion-thumb {
+	width: 100%;
+	background-color: var(--main-color-mute);
+	padding: 20px 20px 20px 20px;
+	color: var(--main-color-gray);
+	position: relative;
+}
+
+.opinion-thumb header {
+	margin-bottom: 30px;
+}
+
+.opinion-thumb h2 {
+	font-weight: 100;
+}
+
+.opinion-thumb h2::first-letter {
+	text-transform: uppercase;
+}
+
+.opinion-container {
+	border-top: 1px solid var(--main-color-light-gray);
+	border-bottom: 1px solid var(--main-color-light-gray);
+	margin-bottom: 20px;
+}
+
+.opinion-container p {
+	letter-spacing: 0.5px;
+	line-height: 1.54;
+	
+}
+
+.date::first-letter {
+	text-transform: capitalize;
+}
+
+.subject, 
+.opinion {
+	text-transform: capitalize;
+	color: var(--main-color-red);
+	font-weight: 600;
+	margin-right: 10px;
+}
+
+.separator {
+	position: absolute;
+	bottom: 0;
+	left: 0 ;
+	width: 100%;
+	height: 5px;
+	background: linear-gradient(to right, var(--main-color-lila), var(--main-color-red), var(--main-color-blue));
+}
+
+
+
+

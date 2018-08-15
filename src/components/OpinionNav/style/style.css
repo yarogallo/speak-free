@@ -1,0 +1,36 @@
+.opinion-nav {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	margin-bottom: 10px;
+}
+
+.opinion-nav button {
+	width: 60px;
+	height: 40px;
+	padding: 0;
+	background-color: transparent;
+	border: 0;
+	border-bottom: 1px solid var(--main-color-gray);
+}
+
+.opinion-nav button img {
+	margin: 2px;
+}
+
+.button-content {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
+.opinion-nav button:hover {
+	opacity: 0.5;
+}
+
+.numb {
+	font-weight: 800;
+	font-size: 15px;
+	color: var(--main-color-gray);
+}

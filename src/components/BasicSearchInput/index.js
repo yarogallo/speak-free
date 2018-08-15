@@ -32,7 +32,7 @@ class BasicSearchInput extends Component {
 		return(
 			<form className={`search-container ${customClass}`} onSubmit={this.handlerSubmit}>
 				<input className="basicSearchInput" type="text" onChange={this.onChangeHandler} value={value} placeholder={text}/>
-				<button className="search-button" onClick={this.handlerSubmit}><img src={SearchIcon}/></button>
+				<button className="search-button" onClick={this.handlerSubmit}><img src={SearchIcon} alt="search icon"/></button>
 			</form>
 		);
 	}

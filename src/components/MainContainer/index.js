@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import MainHeader from '../MainHeader';
+import MainView from '../MainView';
 
 
 class MainContainer extends Component {
@@ -7,6 +8,7 @@ class MainContainer extends Component {
 		return(
 			<div className="container">
           		<MainHeader/>
+				<MainView/>
       		</div>
 		);
 	}
