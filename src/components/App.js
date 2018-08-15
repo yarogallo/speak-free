@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import LogIn from './LogIn';
-import MainContainer from './MainContainer';
+//import LogIn from './LogIn';
+import MainView from './MainView';
 
 class App extends Component {
   render() {
     return (
-      <MainContainer/>
+      <MainView/>
     );
   }
 }
