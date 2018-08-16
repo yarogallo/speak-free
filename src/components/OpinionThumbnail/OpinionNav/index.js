@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import CommentLogo from '../../images/comment-white-oval-bubble.svg';
-import LikeLogo from '../../images/heart-outline.svg';
-import EditLogo from '../../images/edit.svg';
+import CommentLogo from '../images/comment-white-oval-bubble.svg';
+import LikeLogo from '../images/heart-outline.svg';
+import EditLogo from '../images/edit.svg';
 import PropTypes from 'prop-types';
 import './style/style.css';
 

@@ -1,19 +1,19 @@
 .opinion-thumb {
-	width: calc(100% - 40px);
-	background-color: var(--main-color-mute);
-	padding: 10px 20px 10px 20px;
+	width: calc(100% - 20px);
+	background-color: var(--main-color-white);
+	padding: 5px 10px 5px 10px;
 	color: var(--main-color-gray);
 	position: relative;
 }
 
 .opinion-thumb header {
-	margin-bottom: 10px;
+	margin-bottom: 5px;
 }
 
 .opinion-thumb h2 {
 	font-weight: 100;
 	margin-top: 8px;
-	margin-bottom: 8px;
+	margin-bottom: 5px;
 }
 
 .opinion-thumb h2::first-letter {
@@ -21,9 +21,22 @@
 }
 
 .br {
-	height: 2px;
+	height: 1px;
 	width: 100%;
 	background-color: var(--main-color-light-gray);
+}
+
+.deleteButton {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	background-color: var(--main-color-white);
+	padding: 10px;
+	border-radius: 50%;
+}
+
+.deleteButton::after {
+	content: url('../images/delete-button.svg')
 }
 
 .opinion-container p {

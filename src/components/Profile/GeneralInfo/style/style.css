@@ -1,0 +1,40 @@
+.general-list {
+	list-style-type: none;
+	color: var(--main-color-gray);
+	font-weight: 900;
+	display: flex;
+	padding-left: 0;
+	margin: 0;
+	height: 100%;
+}
+
+.general-list .elem {
+	height: calc(100% - 4px);
+	margin-right: 20px;
+	text-align: center;
+	padding: 0 10px;
+}
+
+.general-list .content {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.text {
+	text-transform: capitalize;
+	font-size: 15px;
+}
+
+.number{
+	font-size: 20px;
+}
+
+.general-list .elem:hover {
+	border-bottom: 4px solid var(--main-color-blue);
+}
+
+.general-list .elem:hover .number {
+	color: var(--main-color-blue);
+}

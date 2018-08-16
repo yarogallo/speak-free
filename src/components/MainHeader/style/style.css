@@ -1,7 +1,8 @@
 .main-header {
 	background-color: var(--main-color-mute);
 	position: fixed;
-	box-shadow: 2px 2px 2px 2px var(--main-color-gray);
+	z-index: 9;
+	box-shadow: 1px 1px 1px 1px var(--main-color-light-gray);
 }
 
 .main-header a {

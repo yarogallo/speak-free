@@ -1,0 +1,21 @@
+.first-name {
+	text-transform: capitalize;
+	font-weight: 800;
+	font-size: 25px;
+}
+
+.email::before {
+	content: url('./images/envelope.svg');
+	margin-right: 2px;
+	vertical-align: sub;
+}
+
+.date {
+	text-transform: capitalize;
+}
+
+.date::before {
+	content: url('./images/calendar.svg');
+	margin-right: 2px;
+	vertical-align: sub;
+}

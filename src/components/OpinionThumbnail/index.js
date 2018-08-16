@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import OpinionNav from '../OpinionNav';
+import OpinionNav from './OpinionNav';
 import PropTypes from 'prop-types';
 import './style/style.css';
+import TextButton from '../TextButton/index';
 
 class OpinionThumbnail extends Component {
 	render() {
@@ -17,7 +18,8 @@ class OpinionThumbnail extends Component {
 			<article className={`opinion-thumb ${customClass}`}>
 				<header>
 					<h2><span className="subject">subject:</span>{subject}</h2>
-					<p className="date">{date}</p>
+					<p className="date">{`${date.month}-${date.day}-${date.year}`}</p>
+					<TextButton text="" customClasses="deleteButton"/>
 				</header>
 				<div className="br"></div>
 				<div className="opinion-container">
@@ -43,7 +45,11 @@ OpinionThumbnail.defaultProps = {
 		opinion: "This lorem ipsum generator is made for all the webdesigners, designers, webmasters and others who need lorem ipsum. Generator is made the way that everyone can use it, but especially for projects which need html markup. You can decide which html tags you want and our generator will generate just as you specified.",
 		numComments: 5,
 		numLikes: 26,
-		date: "april/20/20018"
+		date: {
+			month: "september",
+			day: 20,
+			year: 2017
+		}
 	},
 	customClass: ''
 }
