@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import Logo from '../../images/speech-bubbles.svg';
 import './style/style.css';
-import BasicSearchInput from '../BasicSearchInput/index';
+import BasicSearchInput from './BasicSearchInput/index';
 
 class MainHeader extends Component {
 	render() {

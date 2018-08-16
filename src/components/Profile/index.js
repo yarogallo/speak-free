@@ -24,7 +24,7 @@ class Profile extends Component {
 				<header className="profile-header grid">
 				 	<section className="profile-blue-header"></section>
 				 	<section className="profile-nav-container">
-						<GeneralInfo generalInfo={generalInfo}/>	
+						<GeneralInfo generalInfo={generalInfo}/>
 					</section>
 				 	<section className="profile-edit-button">
 					 	<TextButton text="edit profile" customClasses={"edit-button"}/>
@@ -32,17 +32,17 @@ class Profile extends Component {
 				</header>
 				<main className="profile-main grid">
 					<section className="personal-info">
-						<PersonalCard personalInfo={personalInfo}/>
+						<PersonalCard personalInfo={personalInfo} customClasses={'bottom-card'}/>
 					</section>
 					<section className="opinions-container">
 					 	{opinions.map((opinion, index) => (
-							 <div key={index} className="opinion">
+							 <div key={index}>
 								 <OpinionThumbnail/>
 							 </div>
 						 ))}
 					</section>
 				</main>
-				<footer className="profile-footer grid"></footer>
+
 			</section>
 		);
 	}

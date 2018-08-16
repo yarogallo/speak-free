@@ -8,9 +8,9 @@ function PersonalCard(props) {
 		email,
 		date
 	} = props.personalInfo;
-	const { customClass } = props.customClass;
+	const { customClasses } = props;
 	return(
-		<div className="personal-card">
+		<div className={`personal-card ${customClasses}`}>
 			<p className="first-name">{firstName}</p>
 			<p className="email">{email}</p>
 			<p className="date">{`joined ${date[0]} ${date[1]}`}</p>
@@ -20,7 +20,7 @@ function PersonalCard(props) {
 
 PersonalCard.propTypes = {
 	personalInfo: PropTypes.object.isRequired,
-	customClass: PropTypes.string
+	customClasses: PropTypes.string
 };
 
 PersonalCard.defaultProps = {
@@ -29,7 +29,7 @@ PersonalCard.defaultProps = {
 		email: "example@gmail.com",
 		date: ["may", 2015]
 	},
-	customClass: ""
+	customClasses: ""
 }
 
 

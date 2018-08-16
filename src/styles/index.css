@@ -19,7 +19,7 @@ body {
  background-attachment: fixed;
 }
 
-button {
+button, input {
   outline: none;
 }
 

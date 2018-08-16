@@ -38,3 +38,13 @@
 .general-list .elem:hover .number {
 	color: var(--main-color-blue);
 }
+
+@media screen and (max-width: 360px) {
+	
+	.general-list {
+		justify-content: space-around;
+	}
+	.general-list .elem {
+		margin-right: 0;
+	}
+}

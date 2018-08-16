@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import SearchIcon from '../../images/magnifier.svg';
+import SearchIcon from './images/magnifier.svg';
 import './style/style.css';
 
 class BasicSearchInput extends Component {
