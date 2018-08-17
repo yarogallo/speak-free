@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import TextButton from '../TextButton';
 import GeneralInfo from './GeneralInfo';
 import PersonalCard from './PersonalCard';
@@ -7,18 +8,11 @@ import OpinionThumbnail from '../OpinionThumbnail';
 
 class Profile extends Component {
 	render() {
-		const generalInfo = {
-			numbOpinions: 10,
-			followersNumb: 20,
-			followingNumb: 5,
-			likesNumb: 6
-		};
-		const personalInfo = {
-			firstName: "yanisleidi",
-			email: "yrgallo@gmail.com",
-			date: ["september", 2013]	
-		};
-		const opinions = [1, 2, 3, 4, 5];
+		const {
+			generalInfo,
+			personalInfo,
+			opinions
+		} = this.props;
 		return(
 			<section className="row profile">
 				<header className="profile-header grid">
@@ -47,6 +41,27 @@ class Profile extends Component {
 		);
 	}
 }
+
+Profile.propTypes = {
+	generalInfo: PropTypes.object.isRequired,
+	personalInfo: PropTypes.object.isRequired,
+	opinions: PropTypes.array,
+};
+
+Profile.defaultProps = {
+	generalInfo: {
+		numbOpinions: 0,
+		followersNumb: 0,
+		followingNumb: 0,
+		likesNumb: 6
+	},
+	personalInfo: {
+		firstName: "yanisleidi",
+		email: "yrgallo@gmail.com",
+		date: ["september", 2013]	
+	},
+	opinions: [1, 2, 3, 4, 5],	
+};
 
 
 export default Profile;
