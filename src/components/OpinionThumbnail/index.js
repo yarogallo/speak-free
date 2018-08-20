@@ -3,8 +3,23 @@ import OpinionNav from './OpinionNav';
 import PropTypes from 'prop-types';
 import './style/style.css';
 import TextButton from '../TextButton/index';
+import CommentsList from './CommentsList/index';
 
 class OpinionThumbnail extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			showComments: false
+		};
+		this.toggleCommentList = this.toggleCommentList.bind(this);
+	}
+	
+	toggleCommentList() {
+		this.setState( prevState => ({
+			showComments: !prevState.showComments,
+		}));
+	}
+	
 	render() {
 		const {
 			subject,
@@ -14,6 +29,7 @@ class OpinionThumbnail extends Component {
 			date
 		} = this.props.opinionThum;
 		const { customClass } = this.props;
+		const {showComments} = this.state;
 		return(
 			<article className={`opinion-thumb ${customClass}`}>
 				<header>
@@ -27,7 +43,11 @@ class OpinionThumbnail extends Component {
 				</div>
 				<div className="br"></div>
 				<footer>
-					<OpinionNav numComments={numComments} numLikes={numLikes}/>
+					<OpinionNav 
+						numComments={numComments} 
+						numLikes={numLikes}
+						onClickComment={this.toggleCommentList}/>						
+						{showComments? <CommentsList/> : null}
 					<div className="separator"></div>
 				</footer>
 			</article>

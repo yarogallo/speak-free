@@ -1,0 +1,68 @@
+.comment {
+	background-color: var(--main-color-mute);
+	border-radius: 21px;
+	margin-bottom: 15px;
+	padding: 10px;
+}
+
+.comment .comment-header-container {
+	margin-bottom: 2px;
+}
+.comment .comment-autor {
+	font-size: 16px;
+	text-transform: capitalize;
+	display: inline;
+}
+
+.comment .comment-autor::after {
+	content: " "
+}
+
+.comment .comment-date {
+	color: var(--main-color-light-gray);
+}
+
+.comment .comment-body-container {
+	font-size: 14px;
+	line-height: 20px;
+}
+
+.comment p {
+	margin: 0;
+}
+
+.comment footer {
+	position: relative;
+	padding-bottom: 10px;
+}
+
+.comment footer ul {
+	display: flex;
+	list-style-type: none;
+	justify-content: flex-start;
+}
+
+.comment .like-comment {
+	position: absolute;
+	background-color: var(--main-color-white);
+	border-radius: 50%;
+	padding: 4px;
+	right: 0;
+	bottom: 1px;
+	box-shadow: 1px 1px 1px 1px var(--main-color-light-gray);
+}
+
+.comment .like-comment::before {
+	content: url('../images/heart.svg');
+	margin-right: 2px;
+}
+
+.comment .like-button {
+	background-color: var(--main-color-mute);
+	border: 0;
+	color: var(--main-color-red);
+	padding: 0;
+	margin: 0 10px;
+	text-decoration-line: underline;
+}
+

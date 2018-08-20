@@ -7,10 +7,15 @@ import './style/style.css';
 
 class OpinionNav extends Component {
 	render() {
-		const {customClass, numComments, numLikes} = this.props;
+		const {
+			customClass, 
+			numComments, 
+			numLikes,
+			onClickComment
+		} = this.props;
 		return(
 			<section className={`opinion-nav ${customClass}`}>
-				<button type="button">
+				<button type="button" onClick={() => {onClickComment()}}>
 					<div className="button-content">
 						<img src={CommentLogo} alt="comment icon"/>
 						<span className="numb">{numComments? numComments : ""}</span>
@@ -36,6 +41,7 @@ OpinionNav.propTypes = {
 	customClass: PropTypes.string,
 	numComments: PropTypes.number,
 	numLikes: PropTypes.number,
+	onClickComment: PropTypes.func
 };
 
 OpinionNav.defaultProps = {
