@@ -4,19 +4,28 @@ import PropTypes from 'prop-types';
 import './style/style.css';
 import TextButton from '../TextButton/index';
 import CommentsList from './CommentsList/index';
+import EditOpinionForm from './EditOpinionForm/index';
 
 class OpinionThumbnail extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			showComments: false
+			showComments: false,
+			editMode: false,
 		};
 		this.toggleCommentList = this.toggleCommentList.bind(this);
+		this.toggleEditMode = this.toggleEditMode.bind(this);
 	}
 	
 	toggleCommentList() {
 		this.setState( prevState => ({
 			showComments: !prevState.showComments,
+		}));
+	}
+	
+	toggleEditMode() {
+		this.setState( prevState => ({
+			editMode: !prevState.editMode,
 		}));
 	}
 	
@@ -29,7 +38,10 @@ class OpinionThumbnail extends Component {
 			date
 		} = this.props.opinionThum;
 		const { customClass } = this.props;
-		const {showComments} = this.state;
+		const {
+			showComments,
+			editMode
+		} = this.state;
 		return(
 			<article className={`opinion-thumb ${customClass}`}>
 				<header>
@@ -39,14 +51,18 @@ class OpinionThumbnail extends Component {
 				</header>
 				<div className="br"></div>
 				<div className="opinion-container">
-					<p><span className="opinion">opinion:</span>{opinion}</p>
+					{editMode 
+						?<EditOpinionForm opinion={opinion}/>
+						:<p><span className="opinion">opinion:</span>{opinion}</p> 
+					}
 				</div>
 				<div className="br"></div>
 				<footer>
 					<OpinionNav 
 						numComments={numComments} 
 						numLikes={numLikes}
-						onClickComment={this.toggleCommentList}/>						
+						onClickComment={this.toggleCommentList}
+						onClickEdit={this.toggleEditMode}/>						
 						{showComments ? <CommentsList/> : null}
 					<div className="separator"></div>
 				</footer>

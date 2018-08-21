@@ -1,0 +1,18 @@
+.edit-opinion-form {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	overflow: hidden;
+	margin-top: 10px;
+	padding: 10px
+}
+
+
+.edit-opinion-form .edit-button {
+	background-color: var(--main-color-white);
+	padding: 5px;
+	color: var(--main-color-gray);
+	border: 1px solid var(--main-color-gray);
+	margin-bottom: 10px;
+	margin-top: 20px;
+}
