@@ -52,7 +52,7 @@
 	grid-column-end: 3;
 }
 
-.edit-button {
+.profile-header .edit-button {
 	border: 3px solid var(--main-color-gray);
 	background-color: transparent;
 	border-radius: 21px;

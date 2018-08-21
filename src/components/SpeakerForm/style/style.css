@@ -3,10 +3,9 @@
 	grid-column-gap: 10px;
 	grid-template-columns: auto;
 	color: var(--main-color-gray);
-	width: 100%;
 }
 
-.form-title {
+.new-speaker-form .form-title {
 	text-align: center;
 	text-transform: uppercase;
 }
@@ -15,14 +14,14 @@
 	margin-bottom: 5px;
 }
 
-.label {
+.new-speaker-form .label {
 	vertical-align: -50%;
 	text-transform: capitalize;
 	letter-spacing: 0.5px;
 	font-weight: 600;
 }
 
-.submit-button {
+.new-speaker-form .submit-button {
 	background-color: var(--main-color-lila);
 	margin: 0 auto;
 }

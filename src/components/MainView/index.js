@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import MainHeader from '../MainHeader';
-import Profile from '../Profile';
+import MainHeader from './MainHeader';
+import Profile from './Profile';
 
 class MainView extends Component {
 	render() {

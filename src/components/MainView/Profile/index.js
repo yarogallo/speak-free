@@ -1,18 +1,43 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import TextButton from '../TextButton';
 import GeneralInfo from './GeneralInfo';
 import PersonalCard from './PersonalCard';
 import './style/style.css';
-import OpinionThumbnail from '../OpinionThumbnail';
+import TextButton from '../../TextButton';
+import OpinionThumbnail from '../../OpinionThumbnail';
+import Modal from '../../Modal';
+import SpeakerForm from '../../SpeakerForm';
 
 class Profile extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			showModal: false
+		};
+		this.showModalHandler = this.showModalHandler.bind(this);
+		this.closeModalHandler = this.closeModalHandler.bind(this);
+	}
+	
+	showModalHandler() {
+		this.setState({
+			showModal: true
+		});
+	}
+	closeModalHandler() {
+		this.setState({
+			showModal: false
+		});
+	}
+	
 	render() {
 		const {
 			generalInfo,
 			personalInfo,
 			opinions
 		} = this.props;
+		const {
+			showModal,
+		} = this.state;
 		return(
 			<section className="row profile">
 				<header className="profile-header grid">
@@ -21,7 +46,7 @@ class Profile extends Component {
 						<GeneralInfo generalInfo={generalInfo}/>
 					</section>
 				 	<section className="profile-edit-button">
-					 	<TextButton text="edit profile" customClasses={"edit-button"}/>
+					 	<TextButton text="edit profile" customClasses={"edit-button"} onClickHandler={this.showModalHandler}/>
 					</section>
 				</header>
 				<main className="profile-main grid">
@@ -36,7 +61,10 @@ class Profile extends Component {
 						 ))}
 					</section>
 				</main>
-
+				{showModal 
+					? <Modal children={() => <SpeakerForm textHeader="edit profile"/>} onCloseModal={this.closeModalHandler}/>
+					: null
+				}
 			</section>
 		);
 	}

@@ -3,29 +3,31 @@
 	margin-top: 15px;
 }
 
-.write-comment-form {
+.write-comment-container .write-comment-form {
 	display: flex;
 }
 
-.write-comment-input {
+.write-comment-container .write-comment-input {
 	padding: 10px;
 	border-top-left-radius: 21px;
 	border-bottom-left-radius: 21px;
 	border: 0;
+	margin: 0;
 	border: 1px solid var(--main-color-mute);
-	font-size: 17px;
+	font-size: 15px;
 	flex-grow: 1;
 }
 
-.write-comment-input::placeholder {
+.write-comment-container .write-comment-input::placeholder {
 	font-size: 17px;
 	text-transform: lowercase;
 }
 
-.send-comment-button {
+.write-comment-container .send-comment-button {
 	padding: 10px;
 	border-radius: 0;
 	border-top-right-radius: 21px;
 	border-bottom-right-radius: 21px;
-	font-size: 17px;
+	font-size: 15px;
+	border: 0;
 }

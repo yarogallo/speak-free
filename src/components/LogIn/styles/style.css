@@ -23,7 +23,7 @@ input {
 }
 
 .title::after {
-	content: url("../../../images/speech-bubbles.svg");
+	content: url("../images/speech-bubbles.svg");
 	position: absolute;
 }
 

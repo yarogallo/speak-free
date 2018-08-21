@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import TextButton from '../TextButton';
-import PopUp from '../PopUp';
+import PropTypes from 'prop-types';
+import PopUp from './PopUp';
 import './style/style.css';
+
+
 
 function validatePassword(pass) {
 	return pass.length >= 5 && (/\W/).test(pass) && (/[0-9]/).test(pass) && (/[A-Z]/).test(pass);
@@ -34,7 +37,7 @@ function validate(name, lastname, mail, phone, password,reppass) {
 	};
 }
 
-class NewSpeakerForm extends Component {
+class SpeakerForm extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -69,6 +72,22 @@ class NewSpeakerForm extends Component {
 		if(this.inputRef) {
 			this.inputRef.focus();
 		}
+		const {
+			name,
+			lastname,
+			mail,
+			phone,
+			password,
+			reppass
+		} = this.props.userData;
+		this.setState({
+			name: name,
+			lastname: lastname,
+			mail: mail,
+			phone: phone,
+			password: password,
+			reppass: reppass
+		});
 	}
 	
 	submitInfo(evt) {	
@@ -115,12 +134,17 @@ class NewSpeakerForm extends Component {
 			renderPopUp
 		} = this.state;
 		
+		const {
+			userData,
+			textHeader
+		} = this.props;
+		
 		const err = validate(name, lastname, mail, phone, password, reppass);
 		const enabledButton = Object.keys(err).some(elem => !err[elem]);
 		
 		return(
 			<form className="new-speaker-form" onSubmit={this.submitInfo}>
-				<h2 className="form-title">Create you account</h2>
+				<h2 className="form-title">{textHeader}</h2>
 				
 				<label htmlFor="name"><span className="label">name:</span></label>			
 				<input id="name" type="text" placeholder="Jonh" 
@@ -153,7 +177,12 @@ class NewSpeakerForm extends Component {
 				
 				<label htmlFor="pass"><span className="label">password:</span></label>
 				<div className="popup-container">
-					<PopUp visibility={renderPopUp} text="number, uppercase, special characters" customClass="popUp-position" closePopUp={this.togglePopUp}/>
+					 <PopUp 
+						 text="number, uppercase, special charactes" 
+						 visibility={renderPopUp} 
+						 position={{
+							 bottom: 70
+						 }}/> 
 					<input id="pass" type="password" placeholder="Th1sIs1523@3" 
 						value={password} 
 						onChange={this.fillFormHandler("password")}
@@ -178,4 +207,22 @@ class NewSpeakerForm extends Component {
 	}
 }
 
-export default NewSpeakerForm;
+SpeakerForm.propTypes = {
+	userData: PropTypes.object,
+	textHeader: PropTypes.string
+}
+
+SpeakerForm.defaultProps = {
+	userData: {
+		name: "",
+		lastname: "",
+		mail: "",
+		phone: "",
+		password: "",
+		reppass: "",	
+		
+	},
+	textHeader: ""
+}
+
+export default SpeakerForm;

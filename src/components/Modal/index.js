@@ -28,7 +28,7 @@ class Modal extends Component {
 		});
 		window.setTimeout(()=> {
 			this.props.onCloseModal();
-		}, 1000);
+		}, 500);
 	}
 	
 	onClickOutOfModal(evt) {
@@ -49,10 +49,10 @@ class Modal extends Component {
 		const { children } = this.props;
 		return (
 			<section className="modal" onClick={this.onClickOutOfModal}>
-				<section  className={`overlay ${ fadeout ? "close" : ""}`}>
+				<div  className={`overlay ${ fadeout ? "close" : ""}`}>
 					<div><button className="closeButton" onClick={this.closeModal}>x</button></div>
 					<div className="content">{children()}</div>
-				</section>
+				</div>
 			</section>
 		);
 	}
@@ -60,12 +60,12 @@ class Modal extends Component {
 
 Modal.propTypes = {
 	onCloseModal: PropTypes.func,
-	children: PropTypes.element
+	children: PropTypes.func
 };
 
 Modal.defaultProps = {
 	onCloseModal: () => {},
-	children: null,
+	children: () => null,
 };
 
 export default Modal;

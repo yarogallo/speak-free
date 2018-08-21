@@ -47,7 +47,7 @@ class OpinionThumbnail extends Component {
 						numComments={numComments} 
 						numLikes={numLikes}
 						onClickComment={this.toggleCommentList}/>						
-						{showComments? <CommentsList/> : null}
+						{showComments ? <CommentsList/> : null}
 					<div className="separator"></div>
 				</footer>
 			</article>

@@ -2,7 +2,7 @@
 	background-color: var(--main-color-mute);
 	border-radius: 21px;
 	margin-bottom: 15px;
-	padding: 10px;
+	padding: 15px;
 }
 
 .comment .comment-header-container {
@@ -33,13 +33,13 @@
 
 .comment footer {
 	position: relative;
-	padding-bottom: 10px;
 }
 
 .comment footer ul {
 	display: flex;
 	list-style-type: none;
 	justify-content: flex-start;
+	padding-left: 0;
 }
 
 .comment .like-comment {
@@ -49,7 +49,7 @@
 	padding: 4px;
 	right: 0;
 	bottom: 1px;
-	box-shadow: 1px 1px 1px 1px var(--main-color-light-gray);
+	box-shadow: 0.5px 0.5px 1px 1px var(--main-color-light-gray), -0.2px -0.2px 1px 1px var(--main-color-light-gray);
 }
 
 .comment .like-comment::before {

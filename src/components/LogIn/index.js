@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import TextButton from '../TextButton';
-import NewSpeakerForm from '../NewSpeakerForm';
+import SpeakerForm from '../SpeakerForm';
 import Modal from '../Modal';
 import "./styles/style.css";
 
@@ -48,7 +48,7 @@ class LogIn extends Component {
 						 </form>
 					 </div>
 				 </section>
-				 {this.state.showModal? <Modal children={() => <NewSpeakerForm/>} onCloseModal={this.closeModalHandler}/> : null}
+				 {this.state.showModal? <Modal children={() => <SpeakerForm textHeader="new account"/>} onCloseModal={this.closeModalHandler}/> : null}
 			</section>
 		);
 	}

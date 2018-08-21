@@ -31,8 +31,9 @@
 	top: 10px;
 	right: 10px;
 	background-color: var(--main-color-white);
-	padding: 10px;
+	padding: 5px;
 	border-radius: 50%;
+	border: 1px solid var(--main-color-gray);
 }
 
 .deleteButton::after {
