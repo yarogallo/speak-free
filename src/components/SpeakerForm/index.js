@@ -41,12 +41,12 @@ class SpeakerForm extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			name: '',
-			lastname: '',
-			mail: '',
-			phone: '',
-			password: '',
-			reppass: '',
+			name: this.props.userData.name,
+			lastname: this.props.userData.lastname,
+			mail: this.props.userData.mail,
+			phone: this.props.userData.phone,
+			password: this.props.userData.password,
+			reppass: this.props.userData.password,
 			renderPopUp: false,
 			touchedInput: {
 				name: false,
@@ -56,7 +56,6 @@ class SpeakerForm extends Component {
 				password: false,
 				reppass: false,	
 			},
-
 		};
 		this.inputRef = null;
 		this.setInputRef = elem => {
@@ -72,22 +71,6 @@ class SpeakerForm extends Component {
 		if(this.inputRef) {
 			this.inputRef.focus();
 		}
-		const {
-			name,
-			lastname,
-			mail,
-			phone,
-			password,
-			reppass
-		} = this.props.userData;
-		this.setState({
-			name: name,
-			lastname: lastname,
-			mail: mail,
-			phone: phone,
-			password: password,
-			reppass: reppass
-		});
 	}
 	
 	submitInfo(evt) {	
@@ -135,7 +118,6 @@ class SpeakerForm extends Component {
 		} = this.state;
 		
 		const {
-			userData,
 			textHeader
 		} = this.props;
 		
@@ -218,9 +200,7 @@ SpeakerForm.defaultProps = {
 		lastname: "",
 		mail: "",
 		phone: "",
-		password: "",
-		reppass: "",	
-		
+		password: ""	
 	},
 	textHeader: ""
 }
