@@ -1,7 +1,5 @@
 .general-list {
 	list-style-type: none;
-	color: var(--main-color-gray);
-	font-weight: 900;
 	display: flex;
 	padding-left: 0;
 	margin: 0;
@@ -9,34 +7,37 @@
 }
 
 .general-list .elem {
-	height: calc(100% - 4px);
+	height: calc(100% - 4px) ;
 	margin-right: 20px;
-	text-align: center;
-	padding: 0 10px;
 }
 
 .general-list .content {
+	background-color: transparent;
+	border: 0;
 	height: 100%;
 	display: flex;
-	flex-direction: column;
-	justify-content: center;
-}
-
-.text {
+	flex-direction: column;	
 	text-transform: capitalize;
-	font-size: 15px;
+	font-size: 16px;
 }
 
-.number{
-	font-size: 20px;
-}
-
+.general-list .elem.selected,
 .general-list .elem:hover {
 	border-bottom: 4px solid var(--main-color-blue);
 }
 
+.general-list .elem.selected .number,
 .general-list .elem:hover .number {
 	color: var(--main-color-blue);
+}
+
+.general-list .content .text {
+	margin-top: 5px;
+}
+
+.general-list .content .number{
+	font-size: 20px;
+	margin: 0 auto;
 }
 
 @media screen and (max-width: 360px) {
