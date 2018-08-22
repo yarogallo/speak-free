@@ -12,6 +12,7 @@ class OpinionThumbnail extends Component {
 		this.state = {
 			showComments: false,
 			editMode: false,
+			openModal: false,
 		};
 		this.toggleCommentList = this.toggleCommentList.bind(this);
 		this.toggleEditMode = this.toggleEditMode.bind(this);
@@ -35,9 +36,12 @@ class OpinionThumbnail extends Component {
 			opinion,
 			numComments,
 			numLikes,
-			date
+			date,
 		} = this.props.opinionThum;
-		const { customClass } = this.props;
+		const { 
+			customClass,
+			onDeleteOpinion
+		 } = this.props;
 		const {
 			showComments,
 			editMode
@@ -47,7 +51,6 @@ class OpinionThumbnail extends Component {
 				<header>
 					<h2><span className="subject">subject:</span>{subject}</h2>
 					<p className="date">{`${date.month}-${date.day}-${date.year}`}</p>
-					<TextButton text="" customClasses="deleteButton"/>
 				</header>
 				<div className="br"></div>
 				<div className="opinion-container">
@@ -76,17 +79,6 @@ OpinionThumbnail.propTypes = {
 };
 
 OpinionThumbnail.defaultProps = {
-	opinionThum:  {
-		subject: "This is a test",
-		opinion: "This lorem ipsum generator is made for all the webdesigners, designers, webmasters and others who need lorem ipsum. Generator is made the way that everyone can use it, but especially for projects which need html markup. You can decide which html tags you want and our generator will generate just as you specified.",
-		numComments: 5,
-		numLikes: 26,
-		date: {
-			month: "september",
-			day: 20,
-			year: 2017
-		}
-	},
 	customClass: ''
 }
 

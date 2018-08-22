@@ -26,20 +26,6 @@
 	background-color: var(--main-color-light-gray);
 }
 
-.deleteButton {
-	position: absolute;
-	top: 10px;
-	right: 10px;
-	background-color: var(--main-color-white);
-	padding: 5px;
-	border-radius: 50%;
-	border: 1px solid var(--main-color-gray);
-}
-
-.deleteButton::after {
-	content: url('../images/delete-button.svg')
-}
-
 .opinion-container p {
 	letter-spacing: 0.5px;
 	line-height: 1.54;	

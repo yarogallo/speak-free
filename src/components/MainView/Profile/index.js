@@ -7,12 +7,14 @@ import TextButton from '../../TextButton';
 import OpinionThumbnail from '../../OpinionThumbnail';
 import Modal from '../../Modal';
 import SpeakerForm from '../../SpeakerForm';
+import OpinionNav from '../../OpinionThumbnail/OpinionNav/index';
 
 function renderOptions(opinions) {
-	return opinions.map((opinion, index) => {
+	return opinions.map((opinionThum, index) => {
 		return (
 			<div key={index}>
-				<OpinionThumbnail/>
+				<OpinionThumbnail 
+					opinionThum={opinionThum}/>
 			</div>
 		);
 	});
@@ -156,7 +158,51 @@ Profile.defaultProps = {
 		email: "yrgallo@gmail.com",
 		date: ["september", 2013]	
 	},
-	opinions: [1, 2, 3, 4, 5],	
+	opinions: [{
+		subject: "This is a test",
+		opinion: "This lorem ipsum generator is made for all the webdesigners, designers, webmasters and others who need lorem ipsum. Generator is made the way that everyone can use it, but especially for projects which need html markup. You can decide which html tags you want and our generator will generate just as you specified.",
+		numComments: 5,
+		numLikes: 26,
+		date: {
+			month: "september",
+			day: 20,
+			year: 2017
+		},
+		opinionId: 1
+	}, {
+		subject: "This is a test",
+		opinion: "This lorem ipsum generator is made for all the webdesigners, designers, webmasters and others who need lorem ipsum. Generator is made the way that everyone can use it, but especially for projects which need html markup. You can decide which html tags you want and our generator will generate just as you specified.",
+		numComments: 5,
+		numLikes: 26,
+		date: {
+			month: "september",
+			day: 20,
+			year: 2017
+		},
+		opinionId: 2
+	}, {
+		subject: "This is a test",
+		opinion: "This lorem ipsum generator is made for all the webdesigners, designers, webmasters and others who need lorem ipsum. Generator is made the way that everyone can use it, but especially for projects which need html markup. You can decide which html tags you want and our generator will generate just as you specified.",
+		numComments: 5,
+		numLikes: 26,
+		date: {
+			month: "september",
+			day: 20,
+			year: 2017
+		},
+		opinionId: 3
+	}, {
+		subject: "This is a test",
+		opinion: "This lorem ipsum generator is made for all the webdesigners, designers, webmasters and others who need lorem ipsum. Generator is made the way that everyone can use it, but especially for projects which need html markup. You can decide which html tags you want and our generator will generate just as you specified.",
+		numComments: 5,
+		numLikes: 26,
+		date: {
+			month: "september",
+			day: 20,
+			year: 2017
+		},
+		opinionId: 4
+	}],	
 };
 
 
