@@ -27,9 +27,6 @@ button, input {
   cursor: pointer;   
  }
  
- button:focus {
-    box-shadow: 1px 1px 1px 1px var(--main-color-light-gray); 
- }
  
 .container {
   position: relative;

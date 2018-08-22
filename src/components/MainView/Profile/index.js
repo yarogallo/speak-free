@@ -8,14 +8,70 @@ import OpinionThumbnail from '../../OpinionThumbnail';
 import Modal from '../../Modal';
 import SpeakerForm from '../../SpeakerForm';
 
+function renderOptions(opinions) {
+	return opinions.map((opinion, index) => {
+		return (
+			<div key={index}>
+				<OpinionThumbnail/>
+			</div>
+		);
+	});
+}
+
+function renderFollowers(speakers) {
+	return (
+		<div className="followers">
+			{speakers.map((speaker, index) => (
+				<PersonalCard
+					key={index}
+					customClasses="personal-info-card"
+					personalInfo={{
+							firstName: "Jonh",
+							email: "example@gmail.com",
+							date: ["may", 2015]
+					}}/>
+			))}
+		</div>
+	);
+}
+
+const TABS = {
+	options: 'options',
+	following: 'following',
+	followers: 'followers',
+	likes: 'likes'
+};
+
 class Profile extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			showModal: false
+			showModal: false,
+			selectedTab: TABS.options
 		};
 		this.showModalHandler = this.showModalHandler.bind(this);
 		this.closeModalHandler = this.closeModalHandler.bind(this);
+		this.setNewTab = this.setNewTab.bind(this);
+		this.showTabSelectedContent = this.showTabSelectedContent.bind(this);
+	}
+	
+	showTabSelectedContent() {
+		switch (this.state.selectedTab) {
+			case TABS.options:
+				return renderOptions(this.props.opinions);
+			case TABS.followers: 
+				return renderFollowers(this.props.followers);
+			case TABS.following:
+				return renderFollowers(this.props.following);
+			default:
+				return null;
+		}
+	}
+	
+	setNewTab(tab) {
+		this.setState({
+			selectedTab: tab
+		});
 	}
 	
 	showModalHandler() {
@@ -31,34 +87,49 @@ class Profile extends Component {
 	
 	render() {
 		const {
-			generalInfo,
 			personalInfo,
-			opinions
+			opinions,
+			followers,
+			following
 		} = this.props;
+		
 		const {
 			showModal,
+			selectedTab
 		} = this.state;
+		
+		const generalInfo = {
+			numbOpinions: opinions.length + 1,
+			followersNumb: followers.length + 1,
+			followingNumb: following.length + 1,
+			likesNumb: 6
+		}
+		
 		return(
 			<section className="row profile">
 				<header className="profile-header grid">
 				 	<section className="profile-blue-header"></section>
 				 	<section className="profile-nav-container">
-						<GeneralInfo generalInfo={generalInfo}/>
+						<GeneralInfo 
+							generalInfo={generalInfo} 
+							selectedTab={selectedTab}
+							changeTabHandler={this.setNewTab}/>
 					</section>
 				 	<section className="profile-edit-button">
-					 	<TextButton text="edit profile" customClasses={"edit-button"} onClickHandler={this.showModalHandler}/>
+						 <TextButton 
+							 text="edit profile" 
+							 customClasses={"edit-button"} 
+							 onClickHandler={this.showModalHandler}/>
 					</section>
 				</header>
 				<main className="profile-main grid">
 					<section className="personal-info">
-						<PersonalCard personalInfo={personalInfo} customClasses={'bottom-card'}/>
+						<PersonalCard 
+							personalInfo={personalInfo} 
+							customClasses={'bottom-card'}/>
 					</section>
-					<section className="opinions-container">
-					 	{opinions.map((opinion, index) => (
-							 <div key={index}>
-								 <OpinionThumbnail/>
-							 </div>
-						 ))}
+					<section className="main-container">
+					 	{this.showTabSelectedContent(selectedTab)}
 					</section>
 				</main>
 				{showModal 
@@ -71,18 +142,15 @@ class Profile extends Component {
 }
 
 Profile.propTypes = {
-	generalInfo: PropTypes.object.isRequired,
 	personalInfo: PropTypes.object.isRequired,
 	opinions: PropTypes.array,
+	followers: PropTypes.array,
+	following: PropTypes.array,
 };
 
 Profile.defaultProps = {
-	generalInfo: {
-		numbOpinions: 0,
-		followersNumb: 0,
-		followingNumb: 0,
-		likesNumb: 6
-	},
+	followers: [1, 2, 3, 4, 6, 7, 8, 9],
+	following: [7,9,0],
 	personalInfo: {
 		firstName: "yanisleidi",
 		email: "yrgallo@gmail.com",

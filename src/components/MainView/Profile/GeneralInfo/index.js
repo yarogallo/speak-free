@@ -36,19 +36,19 @@ function GeneralInfo(props) {
 					<span className="number">{numbOpinions}</span>
 				</button>
 			</li>
-			<li className="elem">
+			<li className={setClass(TABS.following)}>
 				<button className="content" onClick={() => changeTabHandler(TABS.following)}>
 					<span className="text">following</span>
 					<span className="number">{followingNumb}</span>
 				</button>
 			</li>
-			<li className="elem">
+			<li className={setClass(TABS.followers)}>
 				<button className="content" onClick={() => changeTabHandler(TABS.followers)}>
 					<span className="text">followers</span>
 					<span className="number">{followersNumb}</span>
 				</button>
 			</li>
-			<li className="elem" onClick={() => {changeTabHandler(TABS.likes)}}>
+			<li className={setClass(TABS.likes)} onClick={() => {changeTabHandler(TABS.likes)}}>
 				<button className="content">
 					<span className="text">likes</span>
 					<span className="number">{likesNumb}</span>
@@ -72,7 +72,7 @@ GeneralInfo.defaultProps = {
 		likesNumb: 0
 	},
 	changeTabHandler: () => {},
-	selectedTab: 'options'
+	selectedTab: ""
 }
 
 export default GeneralInfo;
