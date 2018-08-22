@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import MainHeader from './MainHeader';
 import Profile from './Profile';
+import HomeView from './HomeView';
 
 class MainView extends Component {
 	render() {
 		return(
-			<div className="container">
+			<section>
           		<MainHeader/>
-				<Profile/>
-      		</div>
+				  <div className="container">
+				  	<HomeView/>  
+				  </div>	
+      		</section>
 		);
 	}
 }
