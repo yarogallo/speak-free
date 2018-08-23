@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Comment from './Comment/index';
 import './style/style.css';
-import TextButton from '../../TextButton/index';
 import WriteCommentInput from './WriteCommentInput';
 
 class CommentsList extends Component {

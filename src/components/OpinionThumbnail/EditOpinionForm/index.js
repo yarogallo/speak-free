@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './style/style.css';
-import TextButton from '../../TextButton/index';
+import TextButton from '../../text-button';
 import Textarea from 'react-textarea-autosize';
 
 class EditOpinionForm extends Component {

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import TextButton from '../TextButton';
+import TextButton from '../text-button';
 import SpeakerForm from '../SpeakerForm';
 import Modal from '../Modal';
 import "./styles/style.css";

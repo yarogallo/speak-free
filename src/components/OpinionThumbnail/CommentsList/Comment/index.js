@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './style/style.css';
-import OpinionNav from '../../OpinionNav';
-import TextButton from '../../../TextButton/index';
+import TextButton from '../../../text-button';
 
 function Comment(props) {
 	const {

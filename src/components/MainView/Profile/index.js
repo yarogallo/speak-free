@@ -3,11 +3,10 @@ import PropTypes from 'prop-types';
 import GeneralInfo from './GeneralInfo';
 import PersonalCard from './PersonalCard';
 import './style/style.css';
-import TextButton from '../../TextButton';
+import TextButton from '../../text-button';
 import OpinionThumbnail from '../../OpinionThumbnail';
 import Modal from '../../Modal';
 import SpeakerForm from '../../SpeakerForm';
-import OpinionNav from '../../OpinionThumbnail/OpinionNav/index';
 
 function renderOptions(opinions) {
 	return opinions.map((opinionThum, index) => {

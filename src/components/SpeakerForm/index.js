@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import TextButton from '../TextButton';
+import TextButton from '../text-button';
 import PropTypes from 'prop-types';
 import PopUp from './PopUp';
 import './style/style.css';

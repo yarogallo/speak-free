@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import OpinionNav from './OpinionNav';
 import PropTypes from 'prop-types';
 import './style/style.css';
-import TextButton from '../TextButton/index';
 import CommentsList from './CommentsList/index';
 import EditOpinionForm from './EditOpinionForm/index';
 
