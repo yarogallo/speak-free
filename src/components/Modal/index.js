@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import './style/style.css';
+import './modal.css';
 
 class Modal extends Component {
 	constructor(props) {
@@ -49,9 +49,9 @@ class Modal extends Component {
 		const { children } = this.props;
 		return (
 			<section className="modal" onClick={this.onClickOutOfModal}>
-				<div  className={`overlay ${ fadeout ? "close" : ""}`}>
-					<div><button className="closeButton" onClick={this.closeModal}>x</button></div>
-					<div className="content">{children()}</div>
+				<div  className={`modal__overlay ${ fadeout ? "modal__overlay_close" : ""}`}>
+					<div><button className="modal__close-button" onClick={this.closeModal}>x</button></div>
+					<div className="modal__content">{children()}</div>
 				</div>
 			</section>
 		);

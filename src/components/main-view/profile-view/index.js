@@ -5,7 +5,7 @@ import PersonalCard from './personal-card';
 import './profile-view.css';
 import TextButton from '../../text-button';
 import OpinionThumbnail from '../../OpinionThumbnail';
-import Modal from '../../Modal';
+import Modal from '../../modal';
 import SpeakerForm from '../../SpeakerForm';
 
 function renderOptions(opinions) {

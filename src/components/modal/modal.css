@@ -10,7 +10,7 @@
 	z-index: 1000;
 }
 
-.overlay {
+.modal__overlay {
 	background-color: var(--main-color-mute);
 	width: 100%;
 	border-radius: 5px;
@@ -19,7 +19,7 @@
 	animation: fadeIn 0.5s ease-in;
 }
 
-.overlay.close {
+.modal__overlay_close {
 	opacity: 0;
 	transition: opacity 0.5s ease-in-out;
 }
@@ -30,7 +30,7 @@
 	100% {opacity: 1;}
 }
 
-.closeButton {
+.modal__close-button {
 	font-size: 25px;
 	font-weight: 700;
 	border: 0;
@@ -39,7 +39,7 @@
 }
 
 @media screen and (min-width: 499px) {
-	.overlay {
+	.modal__overlay {
 		width: 600px;		
 	}
 }
