@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import GeneralInfo from './GeneralInfo';
-import PersonalCard from './PersonalCard';
-import './style/style.css';
+import GeneralInfo from './general-info';
+import PersonalCard from './personal-card';
+import './profile-view.css';
 import TextButton from '../../text-button';
 import OpinionThumbnail from '../../OpinionThumbnail';
 import Modal from '../../Modal';
@@ -12,28 +12,23 @@ function renderOptions(opinions) {
 	return opinions.map((opinionThum, index) => {
 		return (
 			<div key={index}>
-				<OpinionThumbnail 
-					opinionThum={opinionThum}/>
+				<OpinionThumbnail opinionThum={opinionThum}/>
 			</div>
 		);
 	});
 }
 
 function renderFollowers(speakers) {
-	return (
-		<div className="followers">
-			{speakers.map((speaker, index) => (
+	return speakers.map((speaker, index) => (
 				<PersonalCard
 					key={index}
-					customClasses="personal-info-card"
+					customClasses="profile-main__personal-card_white"
 					personalInfo={{
 							firstName: "Jonh",
 							email: "example@gmail.com",
 							date: ["may", 2015]
 					}}/>
-			))}
-		</div>
-	);
+		));
 }
 
 const TABS = {
@@ -100,36 +95,33 @@ class Profile extends Component {
 		} = this.state;
 		
 		const generalInfo = {
-			numbOpinions: opinions.length + 1,
-			followersNumb: followers.length + 1,
-			followingNumb: following.length + 1,
+			numbOpinions: opinions.length,
+			followersNumb: followers.length,
+			followingNumb: following.length,
 			likesNumb: 6
 		}
 		
 		return(
-			<section className="row profile">
-				<header className="profile-header grid">
-				 	<section className="profile-blue-header"></section>
-				 	<section className="profile-nav-container">
-						<GeneralInfo 
-							generalInfo={generalInfo} 
-							selectedTab={selectedTab}
-							changeTabHandler={this.setNewTab}/>
-					</section>
-				 	<section className="profile-edit-button">
+			<section className="profile">
+				<header className="profile-header">
+				 	<section className="profile-header__blue-section"></section>
+					<GeneralInfo 
+						customClasses="profile-header__navigation"
+						generalInfo={generalInfo} 
+						selectedTab={selectedTab}
+						changeTabHandler={this.setNewTab}/>
+				 	<section className="profile-header__edit">
 						 <TextButton 
 							 text="edit profile" 
-							 customClasses={"edit-button"} 
+							 customClasses={"profile-header__edit__button_round"} 
 							 onClickHandler={this.showModalHandler}/>
 					</section>
 				</header>
-				<main className="profile-main grid">
-					<section className="personal-info">
-						<PersonalCard 
-							personalInfo={personalInfo} 
-							customClasses={'bottom-card'}/>
-					</section>
-					<section className="main-container">
+				<main className="profile-main">	
+					<PersonalCard 
+						customClasses={"profile-main__personal-card"}
+						personalInfo={personalInfo}/>
+					<section className="profile-main-center-container">
 					 	{this.showTabSelectedContent(selectedTab)}
 					</section>
 				</main>

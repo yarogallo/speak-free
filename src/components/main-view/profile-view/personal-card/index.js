@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './style/style.css';
+import './personal-card.css';
 
 function PersonalCard(props) {
 	const {
@@ -10,11 +10,15 @@ function PersonalCard(props) {
 	} = props.personalInfo;
 	const { customClasses } = props;
 	return(
-		<div className={`personal-card ${customClasses}`}>
-			<p className="first-name">{firstName}</p>
-			<p className="email">{email}</p>
-			<p className="date">{`joined ${date[0]} ${date[1]}`}</p>
-		</div>
+		<article className={`personal-card ${customClasses}`}>
+			<header className="personal-card__header">
+				<p className="personal-card__header__name">{firstName}</p>
+			</header>
+			<div className="personal-card__info">	
+				<p className="personal-card__info__email">{email}</p>
+				<p className="personal-card__info__date">{`joined ${date[0]} ${date[1]}`}</p>
+			</div>
+		</article>
 	);
 }
 

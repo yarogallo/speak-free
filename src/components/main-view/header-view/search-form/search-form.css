@@ -1,9 +1,9 @@
-.search-container {
+.search-form {
 	display: inline-block;
 	position: relative;
 }
 
-.basicSearchInput {
+.search-form__input {
 	border-radius: 21px;
 	font-size: 15px;
 	background-color: var(--main-color-white);
@@ -14,12 +14,12 @@
 	border: 1px solid var(--main-color-light-gray);
 }
 
-.basicSearchInput::placeholder {
+.search-form__input::placeholder {
 	text-transform: capitalize;
 	color: var(--main-color-light-gray);
 }
 
-.search-button {
+.search-form__button {
 	position: absolute;
 	bottom: calc(50% - 15px);
 	right: 10px;

@@ -27,21 +27,3 @@ button, input {
   cursor: pointer;   
  }
  
- 
-.container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  max-width: 1800px;
-  margin: 0 auto;
-  color: var( --main-color-gray);
-}
-
-.row {
-  width: 100%;
-}
-
-.col-12 {
-  width:  100%;
-}
-

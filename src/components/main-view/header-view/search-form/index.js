@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import SearchIcon from './images/magnifier.svg';
-import './style/style.css';
+import './search-form.css';
 
-class BasicSearchInput extends Component {
+class SearchForm extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -30,24 +30,24 @@ class BasicSearchInput extends Component {
 		const { text, customClass } = this.props;
 		const { value } = this.state;
 		return(
-			<form className={`search-container ${customClass}`} onSubmit={this.handlerSubmit}>
-				<input className="basicSearchInput" type="text" onChange={this.onChangeHandler} value={value} placeholder={text}/>
-				<button className="search-button" onClick={this.handlerSubmit}><img src={SearchIcon} alt="search icon"/></button>
+			<form className={`search-form ${customClass}`} onSubmit={this.handlerSubmit}>
+				<input className="search-form__input" type="text" onChange={this.onChangeHandler} value={value} placeholder={text}/>
+				<button className="search-form__button" onClick={this.handlerSubmit}><img src={SearchIcon} alt="search icon"/></button>
 			</form>
 		);
 	}
 };
 
-BasicSearchInput.propTypes = {
+SearchForm.propTypes = {
 	onPressSearch: PropTypes.func,
 	onChange: PropTypes.func,
 	customClass: PropTypes.string
 };
 
-BasicSearchInput.defaultProps = {
+SearchForm.defaultProps = {
 	onPressSearch: () => {},
 	onChange : () => {},
 	customClass: ""
 }
 
-export default BasicSearchInput;
+export default SearchForm;

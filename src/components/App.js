@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import LogIn from './LogIn';
 //import MainView from './MainView';
-import MainView from './MainView/index';
+import MainView from './main-view';
 
 class App extends Component {
   render() {
-    return ( 
-       
-        <MainView/>
-     
+    return (        
+        <MainView/>     
     );
   }
 }

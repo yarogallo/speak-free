@@ -1,4 +1,4 @@
-.general-list {
+.general-info {
 	list-style-type: none;
 	display: flex;
 	padding-left: 0;
@@ -6,12 +6,12 @@
 	height: 100%;
 }
 
-.general-list .elem {
+.general-info__item {
 	height: calc(100% - 4px) ;
 	margin-right: 20px;
 }
 
-.general-list .content {
+.general-info__item__content {
 	background-color: transparent;
 	border: 0;
 	height: 100%;
@@ -21,31 +21,31 @@
 	font-size: 16px;
 }
 
-.general-list .elem.selected,
-.general-list .elem:hover {
+.general-info__item_selected,
+.general-info__item:hover {
 	border-bottom: 4px solid var(--main-color-blue);
 }
 
-.general-list .elem.selected .number,
-.general-list .elem:hover .number {
+.general-info__item_selected .general-info__item__content__number,
+.general-info__item:hover .general-info__item__content__number{
 	color: var(--main-color-blue);
 }
 
-.general-list .content .text {
+.general-info__item__content__text {
 	margin-top: 5px;
 }
 
-.general-list .content .number{
+.general-info__item__content__number{
 	font-size: 20px;
 	margin: 0 auto;
 }
 
 @media screen and (max-width: 360px) {
 	
-	.general-list {
+	.general-info {
 		justify-content: space-around;
 	}
-	.general-list .elem {
+	.general-info__item {
 		margin-right: 0;
 	}
 }
