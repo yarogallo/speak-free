@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import './style/style.css';
+import './pop-up.css';
 
 function PopUp(props) {	
 	const { text, customClass, closePopUp, visibility } = props;
@@ -14,8 +14,8 @@ function PopUp(props) {
 							bottom: `${bottom}px`,
 							left: `${left}px`
 					}}>
-					<button className="pop-up-button" onClick={closePopUp}>x</button>
-					<p className= "pop-up-text">{text}</p>
+					<button className="pop-up__button" onClick={closePopUp}>x</button>
+					<p className= "pop-up__text">{text}</p>
 				</div>)
 				: null;
 }

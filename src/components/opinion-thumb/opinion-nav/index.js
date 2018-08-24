@@ -3,7 +3,7 @@ import CommentLogo from '../images/comment-white-oval-bubble.svg';
 import LikeLogo from '../images/heart-outline.svg';
 import EditLogo from '../images/edit.svg';
 import PropTypes from 'prop-types';
-import './style/style.css';
+import './opinion-nav.css';
 
 function OpinionNav(props) {	
 	const {
@@ -16,21 +16,21 @@ function OpinionNav(props) {
 	
 	return(
 		<section className={`opinion-nav ${customClass}`}>
-			<button type="button" onClick={() => {onClickComment()}}>
-				<div className="button-content">
-					<img src={CommentLogo} alt="comment icon"/>
-					<span className="numb">{numComments? numComments : ""}</span>
+			<button className="opinion-nav__button" type="button" onClick={() => {onClickComment()}}>
+				<div className="opinion-nav__content">
+					<img src={CommentLogo} alt="comment icon" className="opinion-nav__image"/>
+					<span className="opinion-nav__span">{numComments? numComments : ""}</span>
 				</div>
 			</button>
-			<button type="button">
-				<div className="button-content">
-					<img src={LikeLogo} alt="like icon"/>
-					<span className="numb">{numLikes? numLikes : ""}</span>
+			<button className="opinion-nav__button" type="button">
+				<div className="opinion-nav__content">
+					<img src={LikeLogo} alt="like icon" className="opinion-nav__image"/>
+					<span className="opinion-nav__span">{numLikes? numLikes : ""}</span>
 				</div>
 			</button>
-			<button type="button-content" onClick={() => {onClickEdit()}}>
-				<div className="edit">
-					<img src={EditLogo} alt="edit icon"/>
+			<button className="opinion-nav__button" type="opinion-nav__content" onClick={() => {onClickEdit()}}>
+				<div className="opinion-nav__content">
+					<img src={EditLogo} alt="edit icon" className="opinion-nav__image"/>
 				</div>
 			</button>
 		</section>

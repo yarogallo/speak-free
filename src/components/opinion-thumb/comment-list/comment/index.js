@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './style/style.css';
+import './comment.css';
 import TextButton from '../../../text-button';
 
 function Comment(props) {
@@ -12,21 +12,21 @@ function Comment(props) {
 	const {customClasses} = props;
 	return(
 		<article className={`comment ${customClasses}`}>
-			<header className="comment-header-container">
-				<h3 className="comment-autor">
+			<header className="comment__header">
+				<h3 className="comment__autor">
 					<strong>{author}</strong>
 				</h3>
-				<small className="comment-date">{date}</small>
+				<small className="comment__date">{date}</small>
 			</header>
-			<div className="comment-body-container">
-				<p>{body}</p>
+			<div>
+				<p className="comment__body">{body}</p>
 			</div>
-			<footer>
-				<ul>
-					<li><TextButton text="like" customClasses="like-button"/></li>
-					<li><TextButton text="dislike" customClasses="like-button"/></li>
+			<footer className="comment__footer">
+				<ul className="comment__list">
+					<li><TextButton text="like" customClasses="comment__button"/></li>
+					<li><TextButton text="dislike" customClasses="comment__button"/></li>
 				</ul>
-				<div className="like-comment">5</div>
+				<div className="comment__likes">5</div>
 			</footer>
 		</article>
 	);

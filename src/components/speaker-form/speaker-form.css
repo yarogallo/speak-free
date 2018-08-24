@@ -1,78 +1,74 @@
-.new-speaker-form {
+.speaker-form {
 	display: grid;
 	grid-column-gap: 10px;
 	grid-template-columns: auto;
 	color: var(--main-color-gray);
+	position: relative;
 }
 
-.new-speaker-form .form-title {
+.form-title {
 	text-align: center;
 	text-transform: uppercase;
 }
 
-.new-speaker-form label {
+.speaker-form__label {
 	margin-bottom: 5px;
 }
 
-.new-speaker-form .label {
+.speaker-form__span {
 	vertical-align: -50%;
 	text-transform: capitalize;
 	letter-spacing: 0.5px;
 	font-weight: 600;
 }
 
-.new-speaker-form .submit-button {
+.speaker-form-button{
 	background-color: var(--main-color-lila);
 	margin: 0 auto;
 }
 
-.popup-container {
-	position: relative;
+.speaker-form__input {
+	font-weight: 500;
+	font-size: 15px;
+	width: calc(100% - 20px);
+	height: 40px;
+	padding-left: 5px;
+	margin-bottom: 5px;
 }
 
-.popUp-position {
-	top: -150%;
-	right: 20px;
-}
-
-.error {
+.speaker-form__input_error {
 	border: 1px solid var(--main-color-red);
 }
 
 @media screen and (max-width: 450px) {
-	.new-speaker-form input {
+	.speaker-form__input  {
 		width: 90%;
 		margin: 0 auto;
-		margin-bottom: 15px;
 	}
 	
-	.new-speaker-form label {
+	.speaker-form__label {
 		text-align: center;
-	}
-	
-	.popUp-position {
-		top: calc(100% - 42%);
-		right: 0;
 	}
 }
 
 @media screen and (min-width: 451px) {
-	.new-speaker-form {
+	.speaker-form {
 		grid-template-columns: 150px auto;
 	}
 	
-	.new-speaker-form label {
+	.speaker-form__label {
 		grid-column-start: 1;
 		grid-column-end: 2;
 		text-align: right;
 	}
 	
-	.new-speaker-form input {
+	.speaker-form__input {
 		grid-column-start: 2;
 		grid-column-end: 3;
 	}
 	
-	.form-title, .submit-button {
+	.form-title, 
+	.speaker-form-button {
 		grid-column-start: 1;
 		grid-column-end: 3;
 	}

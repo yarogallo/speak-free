@@ -1,16 +1,12 @@
-.log-in header {
-	margin-bottom: 50px;
-}
-input {
-	margin-left: 10px;
-	width: 250px;
-	border: none;
-	padding: 10px 10px;
-	font-size: 15px;
-	margin-bottom: 15px;
+.log-in {
+	width: 100%;
 }
 
-.title {
+.log__header {
+	margin-bottom: 50px;
+}
+
+.log__title {
 	font-size: 50px;
 	text-align: center;
 	position: relative;
@@ -22,10 +18,20 @@ input {
 	animation-fill-mode: forwards;
 }
 
-.title::after {
-	content: url("../images/speech-bubbles.svg");
+.log__title::after {
+	content: url("./images/speech-bubbles.svg");
 	position: absolute;
 }
+
+.log__input {
+	margin-left: 10px;
+	width: 250px;
+	border: 0;
+	padding: 10px 10px;
+	font-size: 15px;
+	margin-bottom: 15px;
+}
+
 
 @keyframes dropText {
 	0% {transform: scale(1); text-shadow: 2px 2px 2px var(--main-color-red);}
@@ -37,43 +43,43 @@ input {
 	padding: 4%;
 }
 
-.or {
-	color: var(--main-color-gray);
+.log__p {
+	color: var(--main-color-white);
 	font-weight: 200;
 	font-size: 20px;
 	letter-spacing: 0.1em;
 	text-transform: uppercase;
 }
 
-.flex {
+.log_flex {
 	display: flex;
 }
 
-.column {
+.log_column {
 	flex-direction: column;
 	 -ms-flex-direction: column;
 }
 
-.align-center {
+.log_center {
 	align-items: center;
 }
 
-.align-end {
+.log_end {
 	align-items: flex-end;
 }
 
 
 @media screen and (max-width: 600px) {
-	.title {
+	.log__title {
 		font-size: 30px;
 	}
 }
 
 @media screen and (max-width: 400px) {
-	.title::after {
+	.log__title::after {
 		content: "";
 	}
-	input {
+	.log__input {
 		width: 100%;
 	}
 }

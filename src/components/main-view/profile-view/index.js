@@ -4,9 +4,9 @@ import GeneralInfo from './general-info';
 import PersonalCard from './personal-card';
 import './profile-view.css';
 import TextButton from '../../text-button';
-import OpinionThumbnail from '../../OpinionThumbnail';
+import OpinionThumbnail from '../../opinion-thumb';
 import Modal from '../../modal';
-import SpeakerForm from '../../SpeakerForm';
+import SpeakerForm from '../../speaker-form';
 
 function renderOptions(opinions) {
 	return opinions.map((opinionThum, index) => {

@@ -5,44 +5,41 @@
 	padding: 15px;
 }
 
-.comment .comment-header-container {
+.comment__header {
 	margin-bottom: 2px;
 }
-.comment .comment-autor {
+.comment__autor {
 	font-size: 16px;
 	text-transform: capitalize;
 	display: inline;
 }
 
-.comment .comment-autor::after {
+.comment__autor::after {
 	content: " "
 }
 
-.comment .comment-date {
+.comment__date{
 	color: var(--main-color-light-gray);
 }
 
-.comment .comment-body-container {
+.comment__body {
 	font-size: 14px;
 	line-height: 20px;
-}
-
-.comment p {
 	margin: 0;
 }
 
-.comment footer {
+.comment__footer {
 	position: relative;
 }
 
-.comment footer ul {
+.comment__list {
 	display: flex;
 	list-style-type: none;
 	justify-content: flex-start;
 	padding-left: 0;
 }
 
-.comment .like-comment {
+.comment__likes {
 	position: absolute;
 	background-color: var(--main-color-white);
 	border-radius: 50%;
@@ -52,12 +49,12 @@
 	box-shadow: 0.5px 0.5px 1px 1px var(--main-color-light-gray), -0.2px -0.2px 1px 1px var(--main-color-light-gray);
 }
 
-.comment .like-comment::before {
-	content: url('../images/heart.svg');
+.comment__likes::before {
+	content: url('./images/heart.svg');
 	margin-right: 2px;
 }
 
-.comment .like-button {
+.comment__button {
 	background-color: var(--main-color-mute);
 	border: 0;
 	color: var(--main-color-red);

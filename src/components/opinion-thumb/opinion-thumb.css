@@ -6,48 +6,47 @@
 	position: relative;
 }
 
-.opinion-thumb header {
+.opinion-thumb__header {
 	margin-bottom: 5px;
 }
 
-.opinion-thumb h2 {
+.opinion-thumb__title {
 	font-weight: 100;
 	margin-top: 8px;
 	margin-bottom: 5px;
 }
 
-.opinion-thumb h2::first-letter {
+.opinion-thumb__title::first-letter {
 	text-transform: uppercase;
 }
 
-.br {
+.opinion-thumb__br {
 	height: 1px;
 	width: 100%;
 	background-color: var(--main-color-light-gray);
 }
 
-.opinion-container p {
+.opinion-thumb__opinion {
 	letter-spacing: 0.5px;
 	line-height: 1.54;	
 }
 
-.date::first-letter {
+.opinion-thumb__date::first-letter {
 	text-transform: capitalize;
 }
 
-.subject, 
-.opinion {
+.opinion-thumb_red-text {
 	text-transform: capitalize;
 	color: var(--main-color-red);
 	font-weight: 600;
 	margin-right: 10px;
 }
 
-.opinion-thumb footer {
+.opinion-thumb__footer {
 	margin-top: 10px;
 }
 
-.separator {
+.opinion-thumb__separator {
 	position: absolute;
 	bottom: 0;
 	left: 0 ;

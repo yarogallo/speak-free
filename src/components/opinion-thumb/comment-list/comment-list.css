@@ -7,18 +7,13 @@
 	width: 100%;
 }
 
-.list-comments .comments-items {
+.list-comments__ul {
 	list-style-type: none;
 	padding-left: 0;
 }
 
-.list-comments .write-comment {
-	background-color: var(--main-color-white);
-	border: 0;
-	color: var(--main-color-blue);
-	padding: 10px;
-	margin: 10px;
-	text-decoration-line: underline;
+.list-comments__input-comment {
+	padding-bottom: 10px;
 }
 
 @keyframes drop-down {

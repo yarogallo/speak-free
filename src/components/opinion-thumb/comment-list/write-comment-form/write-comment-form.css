@@ -1,13 +1,8 @@
-.write-comment-container {
-	margin-bottom: 18px;
-	margin-top: 15px;
-}
-
-.write-comment-container .write-comment-form {
+.write-comment-form {
 	display: flex;
 }
 
-.write-comment-container .write-comment-input {
+.write-comment__input {
 	padding: 10px;
 	border-top-left-radius: 21px;
 	border-bottom-left-radius: 21px;
@@ -18,12 +13,12 @@
 	flex-grow: 1;
 }
 
-.write-comment-container .write-comment-input::placeholder {
+.write-comment__input::placeholder {
 	font-size: 17px;
 	text-transform: lowercase;
 }
 
-.write-comment-container .send-comment-button {
+.write-comment__button {
 	padding: 10px;
 	border-radius: 0;
 	border-top-right-radius: 21px;

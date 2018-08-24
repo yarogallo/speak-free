@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Comment from './Comment/index';
-import './style/style.css';
-import WriteCommentInput from './WriteCommentInput';
+import Comment from './comment';
+import './comment-list.css';
+import WriteCommentForm from './write-comment-form';
 
 class CommentsList extends Component {
 	constructor(props) {
@@ -22,13 +22,13 @@ class CommentsList extends Component {
 	
 		return(
 			<section className={`list-comments ${customClasses}`}>			
-				<ul className="comments-items">
+				<ul className="list-comments__ul">
 					{listComments.map((comment, index) => (
 						<li key={index}><Comment comment={comment}/></li>
 					))}
 				</ul>
-				<div>
-					<WriteCommentInput onPostComment={this.onPostComment}/> 
+				<div className="list-comments__input-comment">
+					<WriteCommentForm onPostComment={this.onPostComment}/> 
 				</div>
 			</section>
 		);

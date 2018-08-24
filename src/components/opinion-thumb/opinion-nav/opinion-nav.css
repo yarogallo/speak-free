@@ -5,7 +5,7 @@
 	margin-bottom: 10px;
 }
 
-.opinion-nav button {
+.opinion-nav__button {
 	width: 60px;
 	height: 40px;
 	padding: 0;
@@ -14,23 +14,23 @@
 	border-bottom: 1px solid var(--main-color-gray);
 }
 
-.opinion-nav button img {
+.opinion-nav__image {
 	margin: 2px;
 }
 
-.button-content {
+.opinion-nav__content {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
 
-.opinion-nav button:hover {
+.opinion-nav__button:hover {
 	opacity: 0.5;
 	cursor: pointer;
 }
 
-.numb {
+.opinion-nav__span {
 	font-weight: 800;
 	font-size: 15px;
 	color: var(--main-color-gray);

@@ -14,7 +14,7 @@
 	left: calc(50% - 5px);
 }
 
-.pop-up .pop-up-text {
+.pop-up__text {
 	color: var(--main-color-red);
 	text-align: center;
 	text-transform: lowercase;
@@ -22,7 +22,7 @@
 	padding: 2px 10px;
 }
 
-.pop-up .pop-up-button {
+.pop-up__button {
 	color: var(--main-color-red);
 	background-color: var(--main-color-blue);
 	border: 0;

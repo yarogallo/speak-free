@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import OpinionNav from './OpinionNav';
+import OpinionNav from './opinion-nav';
 import PropTypes from 'prop-types';
-import './style/style.css';
-import CommentsList from './CommentsList/index';
-import EditOpinionForm from './EditOpinionForm/index';
+import './opinion-thumb.css';
+import CommentsList from './comment-list';
+import EditOpinionForm from './edit-opinion-form';
 
 class OpinionThumbnail extends Component {
 	constructor(props) {
@@ -47,26 +47,24 @@ class OpinionThumbnail extends Component {
 		} = this.state;
 		return(
 			<article className={`opinion-thumb ${customClass}`}>
-				<header>
-					<h2><span className="subject">subject:</span>{subject}</h2>
-					<p className="date">{`${date.month}-${date.day}-${date.year}`}</p>
+				<header className="opinion-thumb__header">
+					<h2 className="opinion-thumb__title"><span className="opinion-thumb_red-text">subject:</span>{subject}</h2>
+					<p className="opinion-thumb__date">{`${date.month}-${date.day}-${date.year}`}</p>
 				</header>
-				<div className="br"></div>
-				<div className="opinion-container">
-					{editMode 
-						?<EditOpinionForm opinion={opinion}/>
-						:<p><span className="opinion">opinion:</span>{opinion}</p> 
-					}
-				</div>
-				<div className="br"></div>
-				<footer>
+				<div className="opinion-thumb__br"></div>				
+				{editMode 
+					?<EditOpinionForm opinion={opinion}/>
+					:<p className="opinion-thumb__opinion"><span className="opinion-thumb_red-text">opinion:</span>{opinion}</p> 
+				}				
+				<div className="opinion-thumb__br"></div>
+				<footer className="opinion-thumb__footer">
 					<OpinionNav 
 						numComments={numComments} 
 						numLikes={numLikes}
 						onClickComment={this.toggleCommentList}
 						onClickEdit={this.toggleEditMode}/>						
 						{showComments ? <CommentsList/> : null}
-					<div className="separator"></div>
+					<div className="opinion-thumb__separator"></div>
 				</footer>
 			</article>
 		);

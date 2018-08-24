@@ -45,9 +45,6 @@
 .profile-main-center-container {
 	grid-column-start: 2;
 	grid-column-end: 3;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;	
 }
 
 .profile-main__personal-card {

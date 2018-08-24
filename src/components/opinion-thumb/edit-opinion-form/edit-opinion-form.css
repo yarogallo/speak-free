@@ -1,14 +1,12 @@
 .edit-opinion-form {
+	width: inherit;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-end;
-	overflow: hidden;
-	margin-top: 10px;
-	padding: 10px
 }
 
 
-.edit-opinion-form .edit-button {
+.edit-opinion__button {
 	background-color: var(--main-color-white);
 	padding: 5px;
 	color: var(--main-color-gray);

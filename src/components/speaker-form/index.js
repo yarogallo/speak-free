@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import TextButton from '../text-button';
 import PropTypes from 'prop-types';
-import PopUp from './PopUp';
-import './style/style.css';
+import PopUp from './pop-up';
+import './speaker-form.css';
 
 
 
@@ -125,46 +125,57 @@ class SpeakerForm extends Component {
 		const enabledButton = Object.keys(err).some(elem => !err[elem]);
 		
 		return(
-			<form className="new-speaker-form" onSubmit={this.submitInfo}>
+			<form className="speaker-form" onSubmit={this.submitInfo}>
 				<h2 className="form-title">{textHeader}</h2>
 				
-				<label htmlFor="name"><span className="label">name:</span></label>			
+				<label htmlFor="name" className="speaker-form__label">
+					<span className="speaker-form__span">name:</span>
+				</label>			
 				<input id="name" type="text" placeholder="Jonh" 
 					value={name} 
 					onChange={this.fillFormHandler("name")}
 					ref={this.setInputRef} 
 					onBlur={this.handleBlur("name")}
-					className={this.shouldMarkError("name", err) ? "error" : ""}/>
+					className={this.shouldMarkError("name", err) 
+						? "speaker-form__input speaker-form__input_error" 
+						: "speaker-form__input"}/>
 				
-				<label htmlFor="lastname"><span className="label">last name:</span></label>
+				<label htmlFor="lastname" className="speaker-form__label">
+					<span className="speaker-form__span">last name:</span>
+				</label>
 				<input id="lastname" type="text" placeholder="Doe" 
 					value={lastname} 
 					onChange={this.fillFormHandler("lastname")}
 					onBlur={this.handleBlur("lastname")}
-					className={this.shouldMarkError("lastname", err) ? "error" : ""}/>
+					className={this.shouldMarkError("lastname", err) 
+						? "speaker-form__input speaker-form__input_error" 
+						: "speaker-form__input"}/>
 				
-				<label htmlFor="mail"><span className="label">email:</span></label>
+				<label htmlFor="mail" className="speaker-form__label">
+					<span className="speaker-form__span">email:</span>
+				</label>
 				<input id="mail" type="email" placeholder="jonh@gmail.com" 
 					value={mail} 
 					onChange={this.fillFormHandler("mail")}
 					onBlur={this.handleBlur("mail")}
-					className={this.shouldMarkError("mail", err) ? "error" : ""}/>
+					className={this.shouldMarkError("mail", err)
+						? "speaker-form__input speaker-form__input_error" 
+						: "speaker-form__input"}/>
 				
-				<label htmlFor="phone"><span className="label">phone:</span></label>
+				<label htmlFor="phone" className="speaker-form__label">
+					<span className="speaker-form__span">phone:</span>
+				</label>
 				<input id="phone" type="number" placeholder="555-555-5555" 
 					value={phone} 
 					onChange={this.fillFormHandler("phone")}
 					onBlur={this.handleBlur("phone")}
-					className={this.shouldMarkError("phone", err) ? "error" : ""}/>
+					className={this.shouldMarkError("phone", err) 
+						? "speaker-form__input speaker-form__input_error" 
+						: "speaker-form__input"}/>
 				
-				<label htmlFor="pass"><span className="label">password:</span></label>
-				<div className="popup-container">
-					 <PopUp 
-						 text="number, uppercase, special charactes" 
-						 visibility={renderPopUp} 
-						 position={{
-							 bottom: 70
-						 }}/> 
+				<label htmlFor="pass" className="speaker-form__label">
+					<span className="speaker-form__span">password:</span>
+				</label>
 					<input id="pass" type="password" placeholder="Th1sIs1523@3" 
 						value={password} 
 						onChange={this.fillFormHandler("password")}
@@ -173,17 +184,32 @@ class SpeakerForm extends Component {
 							this.handleBlur("password");
 							this.togglePopUp();
 						}}
-						className={this.shouldMarkError("password", err) ? "error" : ""}/>
-				</div>
+						className={this.shouldMarkError("password", err) 
+							? "speaker-form__input speaker-form__input_error" 
+							: "speaker-form__input"}/>
 				
-				<label htmlFor="rep-pass"><span className="label">repeat password:</span></label> 
+				<label htmlFor="rep-pass" className="speaker-form__label">
+					<span className="speaker-form__span">repeat password:</span>
+				</label> 
 				<input id="rep-pass" type="password" placeholder="Th1sIs1523@3" 
 					value={reppass} 
 					onChange={this.fillFormHandler("reppass")}
 					onBlur={this.handleBlur("reppass")}
-					className={this.shouldMarkError("reppass", err) ? "error" : ""}/>
-				
-				<TextButton text="create" customClasses="submit-button" onClickHandler={this.submitInfo} disabled={enabledButton}/>
+					className={this.shouldMarkError("reppass", err)
+						? "speaker-form__input speaker-form__input_error" 
+						: "speaker-form__input"}/>
+					 <PopUp 
+						 text="number, uppercase, special charactes" 
+						 visibility={renderPopUp} 
+						 position={{
+							 bottom: 160,
+							 left: 50
+						 }}/> 
+				<TextButton 
+					text="create" 
+					customClasses="speaker-form-button" 
+					onClickHandler={this.submitInfo} 
+					disabled={enabledButton}/>
 			</form>
 		);
 	}

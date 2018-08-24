@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import './style/style.css';
+import './edit-opinion-form.css';
 import TextButton from '../../text-button';
 import Textarea from 'react-textarea-autosize';
 
@@ -39,6 +39,7 @@ class EditOpinionForm extends Component {
 			letterSpacing: 0.5,
 			lineHeight: 1.54,
 			outline: 0,
+			paddingTop: "10px",
 			fontSize: "inherit",
 			fontFamily: "'Roboto', sans-serif",
 			color: "var(--main-color-gray)",
@@ -57,7 +58,7 @@ class EditOpinionForm extends Component {
 					maxRows={6}
 					inputRef={tag => this.textareaRef = tag}
 				/>
-				<TextButton text="edit" customClasses="edit-button" onClickHandler={this.submitEditedOpinion}/>
+				<TextButton text="edit" customClasses="edit-opinion__button" onClickHandler={this.submitEditedOpinion}/>
 			</form>
 		);
 	}
