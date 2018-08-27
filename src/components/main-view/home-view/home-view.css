@@ -21,6 +21,10 @@
 	grid-row-end: 3;
 }
 
+.home-view__opinion {
+	margin-bottom: 10px;
+}
+
 .home-view__right-column {
 	grid-row-start: 3;
 }
@@ -30,8 +34,6 @@
 		padding-top: 60px;
 		grid-template-rows: auto auto;
 		grid-template-columns: auto auto;
-		grid-column-gap: 10px;
-		grid-row-gap: 10px;
 	}
 	
 	.home-view__left-column {
@@ -52,7 +54,9 @@
 @media screen and (min-width: 1000px) {
 	.home-view {
 		grid-template-rows: auto;
-		grid-template-columns: 300px auto 300px;
+		grid-template-columns: 250px auto 300px;
+		grid-column-gap: 10px;
+		grid-row-gap: 10px;
 	}
 	
 	.home-view__left-column {
