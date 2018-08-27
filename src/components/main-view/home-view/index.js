@@ -16,7 +16,7 @@ class HomeView extends Component {
 				</section>
 				<section className="home-view__center-column">
 					{opinions.map((opinion, index) => (
-						<OpinionThumbnail key={index} opinionThum={opinion} customClass="home-view__opinion"/>
+						<OpinionThumbnail key={index} opinionThum={opinion} customClass="home-view__opinion" editable={false}/>
 					))}
 				</section>
 				<section className="home-view__right-column"></section>

@@ -39,7 +39,7 @@ class OpinionThumbnail extends Component {
 		} = this.props.opinionThum;
 		const { 
 			customClass,
-			onDeleteOpinion
+			editable,
 		 } = this.props;
 		const {
 			showComments,
@@ -62,6 +62,7 @@ class OpinionThumbnail extends Component {
 						numComments={numComments} 
 						numLikes={numLikes}
 						onClickComment={this.toggleCommentList}
+						allowEdit={editable}
 						onClickEdit={this.toggleEditMode}/>						
 						{showComments ? <CommentsList/> : null}
 					<div className="opinion-thumb__separator"></div>
@@ -72,11 +73,13 @@ class OpinionThumbnail extends Component {
 }
 OpinionThumbnail.propTypes = {
 	opinionThum: PropTypes.object,
+	editable: PropTypes.bool,
 	customClass: PropTypes.string,
 };
 
 OpinionThumbnail.defaultProps = {
-	customClass: ''
+	customClass: '',
+	editable: true,
 }
 
 export default OpinionThumbnail;

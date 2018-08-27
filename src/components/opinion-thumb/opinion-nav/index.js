@@ -11,7 +11,8 @@ function OpinionNav(props) {
 		numComments, 
 		numLikes,
 		onClickComment,
-		onClickEdit
+		onClickEdit,
+		allowEdit
 	} = props;
 	
 	return(
@@ -28,11 +29,13 @@ function OpinionNav(props) {
 					<span className="opinion-nav__span">{numLikes? numLikes : ""}</span>
 				</div>
 			</button>
-			<button className="opinion-nav__button" type="opinion-nav__content" onClick={() => {onClickEdit()}}>
-				<div className="opinion-nav__content">
+			{ allowEdit 
+				? <button className="opinion-nav__button" type="opinion-nav__content" onClick={() => {onClickEdit()}}>
+					<div className="opinion-nav__content">
 					<img src={EditLogo} alt="edit icon" className="opinion-nav__image"/>
 				</div>
 			</button>
+			: null}
 		</section>
 	);
 }
@@ -43,12 +46,14 @@ OpinionNav.propTypes = {
 	numLikes: PropTypes.number,
 	onClickComment: PropTypes.func,
 	onClickEdit: PropTypes.func,
+	allowEdit: PropTypes.bool,
 };
 
 OpinionNav.defaultProps = {
 	customClass: '',
 	numComments: 0,
 	numLikes: 0,
+	allowEdit: true,
 };
 
 export default OpinionNav;
