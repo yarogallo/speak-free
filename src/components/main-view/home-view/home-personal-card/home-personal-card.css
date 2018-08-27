@@ -1,0 +1,57 @@
+.home-card {
+	
+}
+
+.home-card__personal-info {
+	text-align: center;
+}
+
+.home-card__blue-header {
+	height: 60px;
+	background-color: var(--main-color-blue);
+}
+
+.home-card__name {
+	text-transform: capitalize;
+	font-size: 20px;
+	margin-top: 10px;
+	margin-bottom: 5px;
+}
+
+.home-card__mail {
+	text-transform: lowercase;
+	font-weight: 100;
+	font-size: 14px;
+	margin: 0;
+	padding: 0;
+}
+
+.home-card__general-info {
+	margin-bottom: 16px;
+}
+
+.home-card__ul {
+	list-style-type: none;
+	display: flex;
+	justify-content: space-evenly;
+	padding: 0;
+}
+
+.home-card__li {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.home-card__item {
+	font-size: 12px;
+	font-weight: bold;
+	text-transform: capitalize;
+	margin-bottom: 5px;
+}
+
+.home-card__numb {
+	font-size: 14px;
+	font-weight: bold;
+	color: var(--main-color-blue);
+}

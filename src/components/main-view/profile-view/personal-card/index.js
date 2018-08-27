@@ -10,15 +10,15 @@ function PersonalCard(props) {
 	} = props.personalInfo;
 	const { customClasses } = props;
 	return(
-		<article className={`personal-card ${customClasses}`}>
-			<header className="personal-card__header">
+		<div className={`personal-card ${customClasses}`}>
+			<div className="personal-card__header">
 				<p className="personal-card__header__name">{firstName}</p>
-			</header>
+			</div>
 			<div className="personal-card__info">	
 				<p className="personal-card__info__email">{email}</p>
 				<p className="personal-card__info__date">{`joined ${date[0]} ${date[1]}`}</p>
 			</div>
-		</article>
+		</div>
 	);
 }
 

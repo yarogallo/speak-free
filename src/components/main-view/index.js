@@ -10,7 +10,7 @@ class MainView extends Component {
 			<section>
           		<HeaderView/>
 				  <div className="o-container">
-				  	<Profile/>  
+				  	<HomeView/>  
 				  </div>	
       		</section>
 		);

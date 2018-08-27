@@ -7,21 +7,22 @@
 .home-view__left-column {
 	grid-row-start: 1;
 	grid-row-end: 2;
-	height: 500px;
-	background-color: yellow;
+	background-color: var(--main-color-white);
+}
+
+.home-view__profile-anchor {
+	text-decoration: none;
+	color: var(--main-color-gray);
+	display: block;
 }
 
 .home-view__center-column {
 	grid-row-start: 2;
 	grid-row-end: 3;
-	height: 500px;
-	background-color: red;
 }
 
 .home-view__right-column {
 	grid-row-start: 3;
-	height: 500px;
-	background-color: blue;
 }
 
 @media screen and (min-width: 650px) {
