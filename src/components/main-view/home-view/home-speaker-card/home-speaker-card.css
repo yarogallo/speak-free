@@ -1,0 +1,41 @@
+.home-speker-card {
+	
+}
+
+.home-speaker__header {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 15px;
+}
+
+.home-speaker__profile-link {
+	text-decoration: none;
+	color: var(--main-color-gray);
+	font-weight: 800;
+	font-size: 20px;
+}
+
+.home-speaker__profile-link::first-letter {
+	text-transform: capitalize;
+}
+
+.home-speaker__email {
+	color: var(--main-color-light-gray);
+	font-size: 15px;
+}
+
+.home-speaker__close-button {
+	border-radius: 50%;
+	padding: 5px 8px;
+	font-size: 15px;
+	background-color: var(--main-color-white);
+	color: var(--main-color-gray);
+	border: 0;
+}
+
+.home-speaker__follow-button {
+	border-radius: 21px;
+	background-color: var(--main-color-white);
+	color: var(--main-color-red);
+	border: 2px solid var(--main-color-red);
+}

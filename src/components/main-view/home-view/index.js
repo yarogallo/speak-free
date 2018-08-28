@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
-import './home-view.css';
-import HomePersonalCard from './home-personal-card';
-import OpinionThumbnail from '../../opinion-thumb';
 import PropTypes from 'prop-types';
+
+import HomePersonalCard from './home-personal-card';
+import HomeSearchPeople from './home-search-people';
+import OpinionThumbnail from '../../opinion-thumb';
+
+import './home-view.css';
 
 class HomeView extends Component {
 	render() {
@@ -11,7 +14,7 @@ class HomeView extends Component {
 			<section className="home-view">
 				<section className="home-view__left-column">
 					<a href="#" className="home-view__profile-anchor">
-						<HomePersonalCard/>
+						<HomePersonalCard customClasses="home-view_white-background"/>
 					</a>
 				</section>
 				<section className="home-view__center-column">
@@ -19,7 +22,9 @@ class HomeView extends Component {
 						<OpinionThumbnail key={index} opinionThum={opinion} customClass="home-view__opinion" editable={false}/>
 					))}
 				</section>
-				<section className="home-view__right-column"></section>
+				<section className="home-view__right-column">
+					<HomeSearchPeople customClass="home-view_white-background"/>
+				</section>
 			</section>
 		);
 	}

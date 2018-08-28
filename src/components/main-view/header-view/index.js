@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import Logo from './images/speech-bubbles.svg';
 import './header-view.css';
-import SearchForm from './search-form';
+import SearchForm from '../../search-form';
 
 class HeaderView extends Component {
 	render() {
