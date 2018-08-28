@@ -6,6 +6,7 @@ import HomeSearchPeople from './home-search-people';
 import OpinionThumbnail from '../../opinion-thumb';
 
 import './home-view.css';
+import SearchForm from '../../search-form';
 
 class HomeView extends Component {
 	render() {
@@ -18,8 +19,11 @@ class HomeView extends Component {
 					</a>
 				</section>
 				<section className="home-view__center-column">
+					<div className="home-view-opinion-search">
+						<SearchForm text="search opinions" customClass="home-view-input"/>
+					</div>
 					{opinions.map((opinion, index) => (
-						<OpinionThumbnail key={index} opinionThum={opinion} customClass="home-view__opinion" editable={false}/>
+						<OpinionThumbnail key={index} opinionThum={opinion} customClass="home-view-opinion" editable={false}/>
 					))}
 				</section>
 				<section className="home-view__right-column">

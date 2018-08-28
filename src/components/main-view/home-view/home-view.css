@@ -24,7 +24,18 @@
 	grid-row-end: 3;
 }
 
-.home-view__opinion {
+.home-view-opinion-search {
+	background-color: var(--main-color-white);
+	padding: 10px;
+}
+
+.home-view-input {
+	width: 100%;
+	max-width: 400px;
+	margin: 0 auto;
+}
+
+.home-view-opinion {
 	margin-bottom: 10px;
 }
 

@@ -1,15 +1,18 @@
 .search-form {
-	display: inline-block;
-	position: relative;
+	display: flex;
+	justify-content: center;
 }
 
 .search-form__input {
-	border-radius: 21px;
+	width: 100%;
+	border-top-left-radius: 21px;
+	border-bottom-left-radius: 21px;
 	font-size: 15px;
 	background-color: var(--main-color-white);
 	height: 20px;
 	padding: 8px 25px 8px 12px;
 	border: 1px solid var(--main-color-light-gray);
+	border-right-width: 0;
 }
 
 .search-form__input::placeholder {
@@ -18,10 +21,10 @@
 }
 
 .search-form__button {
-	position: absolute;
-	bottom: calc(50% - 15px);
-	right: 10px;
 	background-color: var(--main-color-white);
-	border: transparent;
-	border-radius: 50%;
+	border-top-right-radius: 21px;
+	border-bottom-right-radius: 21px;
+	padding-right: 10px;
+	border: 1px solid var(--main-color-light-gray);
+	border-left: 0;
 }
