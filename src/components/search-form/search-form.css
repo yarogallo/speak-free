@@ -8,9 +8,7 @@
 	font-size: 15px;
 	background-color: var(--main-color-white);
 	height: 20px;
-	width: 200px;
 	padding: 8px 25px 8px 12px;
-	margin: 0 auto;
 	border: 1px solid var(--main-color-light-gray);
 }
 

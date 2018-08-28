@@ -34,7 +34,6 @@
 
 @media screen and (min-width: 650px) {
 	.home-view {
-		padding-top: 60px;
 		grid-template-rows: auto auto;
 		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 		grid-column-gap: 10px;
