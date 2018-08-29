@@ -26,11 +26,6 @@
 	background-color: var(--main-color-light-gray);
 }
 
-.opinion-thumb__opinion {
-	letter-spacing: 0.5px;
-	line-height: 1.54;	
-}
-
 .opinion-thumb__date::first-letter {
 	text-transform: capitalize;
 }

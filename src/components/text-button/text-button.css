@@ -8,6 +8,7 @@
 }
 
 .text-button:focus {
-	outline-style: inset;
+	outline-style: outset;
+	outline-width: 1px;
 	outline-color: var(--main-color-light-gray);
 }

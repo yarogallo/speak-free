@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import './opinion-thumb.css';
 import CommentsList from './comment-list';
 import EditOpinionForm from './edit-opinion-form';
+import OpinionBody from './opinion-body';
 
 class OpinionThumbnail extends Component {
 	constructor(props) {
@@ -39,7 +40,7 @@ class OpinionThumbnail extends Component {
 		} = this.props.opinionThum;
 		const { 
 			customClass,
-			editable,
+			editable,	
 		 } = this.props;
 		const {
 			showComments,
@@ -54,8 +55,8 @@ class OpinionThumbnail extends Component {
 				<div className="opinion-thumb__br"></div>				
 				{editMode 
 					?<EditOpinionForm opinion={opinion}/>
-					:<p className="opinion-thumb__opinion"><span className="opinion-thumb_red-text">opinion:</span>{opinion}</p> 
-				}				
+					:<OpinionBody opinion={opinion}/>
+				}			
 				<div className="opinion-thumb__br"></div>
 				<footer className="opinion-thumb__footer">
 					<OpinionNav 
