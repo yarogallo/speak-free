@@ -23,7 +23,7 @@ function HomePersonalCard({personalInfo, customClasses, numbOpinions, followersN
 					</li>
 					<li className="home-card__li">
 						<span className="home-card__item">followers</span>
-						<span className="home-card__numb"b>{followersNumb}</span>
+						<span className="home-card__numb">{followersNumb}</span>
 					</li>
 					<li className="home-card__li">
 						<span className="home-card__item">following</span>

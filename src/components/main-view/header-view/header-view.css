@@ -11,11 +11,20 @@
 
 .header-view-navigation__item {	
 	text-decoration: none;
-	padding: 20px 0;
+	padding: 15px 0;
 	text-transform: uppercase;
 	color: var(---main-color-gray);
 	font-weight: 800;
 	border-bottom: 4px solid transparent;
+}
+
+.header-view-navigation__button {
+	border-radius: 20px;
+	padding: 7px;
+	border: 1px solid var(--main-color-red);
+	font-size: 12px;
+	text-transform: uppercase;
+	font-weight: 800;
 }
 
 .header-view-navigation__item_blue {
@@ -34,12 +43,13 @@
 	content: url('./images/user.svg');
 }
 
-.header-view-navigation__item_red {
+.header-view-navigation__button_red {
 	color: var(--main-color-red);
+	
 }
-.header-view-navigation__item_red::after {
-	content: url('images/chat.svg');
-	margin-left: 2px;
+
+.header-view-navigation__button_red:hover {
+	background-color: var(--main-color-light-gray);
 }
 
 .header-view-navigation__item:hover {

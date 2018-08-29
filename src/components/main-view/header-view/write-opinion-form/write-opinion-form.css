@@ -1,0 +1,20 @@
+.header-view__opinion-form {
+	display: flex;
+	flex-direction: column;
+}
+
+.header-view__opinion-label {
+	margin-left: 5px;
+	margin-bottom: 10px;
+	font-size: 1.2em;
+	text-transform: uppercase;
+	text-align: right;
+}
+
+.header-view__opinion-label::after {
+	content: "...."
+}
+
+.header-view__opinion-button {
+	align-self: flex-end;
+}

@@ -6,3 +6,8 @@
 	text-transform: uppercase;
 	padding: 10px 20px;
 }
+
+.text-button:focus {
+	outline-style: inset;
+	outline-color: var(--main-color-light-gray);
+}
