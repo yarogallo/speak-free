@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import HomePersonalCard from './home-personal-card';
 import HomeSearchPeople from './home-search-people';
@@ -14,9 +15,9 @@ class HomeView extends Component {
 		return(
 			<section className="home-view">
 				<section className="home-view__left-column">
-					<a href="#" className="home-view__profile-anchor">
+					<Link to="/profile" className="home-view__profile-anchor">
 						<HomePersonalCard customClasses="home-view_white-background"/>
-					</a>
+					</Link>
 				</section>
 				<section className="home-view__center-column">
 					<div className="home-view-opinion-search">

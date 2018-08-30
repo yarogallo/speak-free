@@ -6,12 +6,8 @@ import MainView from './main-view';
 class App extends Component {
   render() {
     return (        
-        <MainView/>   
+        <LogIn/>   
     );
   }
 }
-// <section className="container">
-      //   <LogIn/>
-      // </section>
-
 export default App;
