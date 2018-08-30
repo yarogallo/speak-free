@@ -6,7 +6,7 @@ import MainView from './main-view';
 class App extends Component {
   render() {
     return (        
-        <LogIn/>   
+        <MainView/>   
     );
   }
 }
