@@ -1,0 +1,2 @@
+export const CREATE_COMMENT = 'CREATE_COMMENT';
+export const LIKE_COMMENT = 'LIKE_COMMENT';
