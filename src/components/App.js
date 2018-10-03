@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import LogIn from './log-in';
-//import MainView from './MainView';
 import MainView from './main-view';
+import { Route } from 'react-router-dom';
 
 class App extends Component {
   render() {
     return (        
-        <MainView/>   
+       <div>
+          <Route path="/" exact component={LogIn} />
+          <Route path="/home" component={MainView} /> 
+      </div>
     );
   }
 }

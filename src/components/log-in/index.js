@@ -12,6 +12,7 @@ class LogIn extends Component {
 		};
 		this.showModalHandler = this.showModalHandler.bind(this);
 		this.closeModalHandler = this.closeModalHandler.bind(this);
+		this.createNewUser = this.createNewUser.bind(this);
 	}
 	showModalHandler() {
 		this.setState({
@@ -22,6 +23,9 @@ class LogIn extends Component {
 		this.setState({
 			showModal: false
 		});
+	}
+	createNewUser(user) {
+		window.alert(user);
 	}
 	render(){
 		return (
@@ -52,7 +56,7 @@ class LogIn extends Component {
 				 </section>
 				 {this.state.showModal
 					? <Modal 
-						children={() => <SpeakerForm textHeader="new account"/>} 
+						children={() => <SpeakerForm textHeader="new account" onSubmitData={this.createNewUser}/>} 
 						onCloseModal={this.closeModalHandler}/> 
 					: null}
 			</section>

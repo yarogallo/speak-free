@@ -41,12 +41,14 @@ class SpeakerForm extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			name: this.props.userData.name,
-			lastname: this.props.userData.lastname,
-			mail: this.props.userData.mail,
-			phone: this.props.userData.phone,
-			password: this.props.userData.password,
-			reppass: this.props.userData.password,
+			userInfo: {
+				name: this.props.userData.name,
+				lastname: this.props.userData.lastname,
+				mail: this.props.userData.mail,
+				phone: this.props.userData.phone,
+				password: this.props.userData.password,
+				reppass: this.props.userData.password,	
+			},
 			renderPopUp: false,
 			touchedInput: {
 				name: false,
@@ -75,13 +77,19 @@ class SpeakerForm extends Component {
 	
 	submitInfo(evt) {	
 		evt.preventDefault();
+		this.props.onSubmitData(
+			this.state.userInfo
+		);
 	}
 	
 	fillFormHandler(field) {
 		return (evt) => {
 			const value = evt.target.value;
 			this.setState({
-				[field]: value
+				userInfo: {
+					...this.state.userInfo,
+					[field]: value
+				}
 			})
 		};
 	}
@@ -115,7 +123,7 @@ class SpeakerForm extends Component {
 			password,
 			reppass,
 			renderPopUp
-		} = this.state;
+		} = this.state.userInfo;
 		
 		const {
 			textHeader
@@ -217,7 +225,8 @@ class SpeakerForm extends Component {
 
 SpeakerForm.propTypes = {
 	userData: PropTypes.object,
-	textHeader: PropTypes.string
+	textHeader: PropTypes.string,
+	onSubmitData: PropTypes.func.isRequired
 }
 
 SpeakerForm.defaultProps = {
@@ -228,7 +237,8 @@ SpeakerForm.defaultProps = {
 		phone: "",
 		password: ""	
 	},
-	textHeader: ""
+	textHeader: "",
+	onSubmitData: () => {}
 }
 
 export default SpeakerForm;
