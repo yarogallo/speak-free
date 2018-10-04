@@ -3,16 +3,20 @@ import TextButton from '../text-button';
 import SpeakerForm from '../speaker-form';
 import Modal from '../modal';
 import "./log-in.css";
+import { Link } from 'react-router-dom';
 
 class LogIn extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			showModal: false	
+			showModal: false,
+			email: "",
+			password: ""
 		};
 		this.showModalHandler = this.showModalHandler.bind(this);
 		this.closeModalHandler = this.closeModalHandler.bind(this);
 		this.createNewUser = this.createNewUser.bind(this);
+		this.changeInputValue = this.changeInputValue.bind(this);
 	}
 	showModalHandler() {
 		this.setState({
@@ -24,10 +28,24 @@ class LogIn extends Component {
 			showModal: false
 		});
 	}
+	changeInputValue(field) {
+		return (value) => {
+				this.setState({
+				[field]: value
+			});
+		}
+	}
 	createNewUser(user) {
-		window.alert(user);
+		this.closeModalHandler();
+		this.changeInputValue("email")(user.mail);
+		this.changeInputValue("password")(user.password);
 	}
 	render(){
+		const {
+			email,
+			password
+		} = this.state;
+
 		return (
 			<section className="log-in">
 				 <header className="log__header">
@@ -42,16 +60,24 @@ class LogIn extends Component {
 							className="log__input"
 							type="email" 
 							required 
-							placeholder="example@domain.com"/>
+							placeholder="example@domain.com"
+							value={email}
+							onChange={(evt) => {this.changeInputValue("email")(evt.target.value)}}/>
 						<input 
 							id="password"
 							className="log__input"
-							type="email" 
+							type="password" 
 							required 
-							placeholder="password"/>
-							<div>
+							placeholder="password"
+							value= {password}
+							onChange={(evt) => {this.changeInputValue("password")(evt.target.value)}}/>
+							{email && password 
+							?<Link to="/home">
 								<TextButton text="log in"/>
-							</div>
+							</Link> 
+							: <div>
+								<TextButton text="log in"/>
+							</div>}
 					</form>
 				 </section>
 				 {this.state.showModal
