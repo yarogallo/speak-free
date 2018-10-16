@@ -1,26 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './general-info.css';
+import {NavLink} from 'react-router-dom';
 
 function GeneralInfo(props) {
 	const TABS = {
-		options: 'options',
+		opinions: 'opinions',
 		following: 'following',
 		followers: 'followers',
 		likes: 'likes'
 	};
 	
-	const { 
-		numbOpinions,
-		followersNumb,
-		followingNumb,
-		likesNumb
-	} = props.generalInfo;
+	const { generalInfo } = props;
+	const info = {
+		[TABS.opinions]: generalInfo.numbOpinions,
+		[TABS.following]: generalInfo.followingNumb,
+		[TABS.followers]: generalInfo.followersNumb,
+		[TABS.likes]: generalInfo.likesNumb,
+	};
 	
 	const {
 		changeTabHandler,
 		selectedTab,
-		customClasses
+		customClasses,
+		path
 	} = props;
 	
 	const setClass = (tab) => {
@@ -29,32 +32,20 @@ function GeneralInfo(props) {
 	
 	return(
 		<ul className={`general-info ${customClasses}`}>
-			<li className={setClass(TABS.options)} >
-				<button 
-					className="general-info__item__content"
-					onClick={ () => { changeTabHandler(TABS.options)} }>
-					<span className="general-info__item__content__text">opinions</span>
-					<span className="general-info__item__content__number">{numbOpinions}</span>
-				</button>
-			</li>
-			<li className={setClass(TABS.following)}>
-				<button className="general-info__item__content" onClick={() => changeTabHandler(TABS.following)}>
-					<span className="general-info__item__content__text">following</span>
-					<span className="general-info__item__content__number">{followingNumb}</span>
-				</button>
-			</li>
-			<li className={setClass(TABS.followers)}>
-				<button className="general-info__item__content" onClick={() => changeTabHandler(TABS.followers)}>
-					<span className="general-info__item__content__text">followers</span>
-					<span className="general-info__item__content__number">{followersNumb}</span>
-				</button>
-			</li>
-			<li className={setClass(TABS.likes)} onClick={() => {changeTabHandler(TABS.likes)}}>
-				<button className="general-info__item__content">
-					<span className="general-info__item__content__text">likes</span>
-					<span className="general-info__item__content__number">{likesNumb}</span>
-				</button>
-			</li>
+			{Object.keys(TABS).map( tab => {
+				return (
+					<li className={setClass(tab)} key={tab}>
+						<NavLink to={`${path}/${tab}`}>
+							<button className="general-info__item__content" onClick={() => changeTabHandler(tab)}>
+								<span className="general-info__item__content__text">{tab}</span>
+								<span className="general-info__item__content__number">
+									{info[tab]}
+								</span>
+							</button>
+						</NavLink>
+					</li>
+				);
+			})}
 		</ul>
 	);
 }

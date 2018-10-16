@@ -5,15 +5,21 @@ import Profile from './profile-view';
 import HomeView from './home-view';
 import './main-view.css';
 
+
 class MainView extends Component {
 	render() {
+		console.log(this.props, "dgfjhsdfgj");
+		const { mainview } = this.props.match.params;
+		const { url } = this.props.match.url;
 		return(
 			<section>
           		<HeaderView/>
-				  <div className="o-container">
-				  	<Route path="/home" component={HomeView}/>  
-				  	<Route path="/profile" component={Profile}/>  
-				  </div>	
+
+				<div className="o-container">
+					{ mainview === "home" 
+					? <HomeView/>
+					: <Profile selectedTab = "opinions" url={url}/>}
+				</div>	
       		</section>
 		);
 	}

@@ -7,8 +7,9 @@ import TextButton from '../../text-button';
 import OpinionThumbnail from '../../opinion-thumb';
 import Modal from '../../modal';
 import SpeakerForm from '../../speaker-form';
+import { Route } from 'react-router-dom';
 
-function renderOptions(opinions) {
+function renderOpinions(opinions) {
 	return opinions.map((opinionThum, index) => {
 		return (
 			<div key={index}>
@@ -18,8 +19,8 @@ function renderOptions(opinions) {
 	});
 }
 
-function renderFollowers(speakers) {
-	return speakers.map((speaker, index) => (
+function renderPeople(users) {
+	return users.map((user, index) => (
 				<PersonalCard
 					key={index}
 					customClasses="profile-main__personal-card_white"
@@ -31,8 +32,14 @@ function renderFollowers(speakers) {
 		));
 }
 
+function renderLikes(match) {
+	return(
+		<h1>{match}</h1>
+	);
+}
+
 const TABS = {
-	options: 'options',
+	opinions: 'opinions',
 	following: 'following',
 	followers: 'followers',
 	likes: 'likes'
@@ -43,28 +50,14 @@ class Profile extends Component {
 		super(props);
 		this.state = {
 			showModal: false,
-			selectedTab: TABS.options
+			selectedTab: props.selectedTab
 		};
 		this.showModalHandler = this.showModalHandler.bind(this);
 		this.closeModalHandler = this.closeModalHandler.bind(this);
-		this.setNewTab = this.setNewTab.bind(this);
-		this.showTabSelectedContent = this.showTabSelectedContent.bind(this);
+		this.selectNewTab = this.selectNewTab.bind(this);
 	}
 	
-	showTabSelectedContent() {
-		switch (this.state.selectedTab) {
-			case TABS.options:
-				return renderOptions(this.props.opinions);
-			case TABS.followers: 
-				return renderFollowers(this.props.followers);
-			case TABS.following:
-				return renderFollowers(this.props.following);
-			default:
-				return null;
-		}
-	}
-	
-	setNewTab(tab) {
+	selectNewTab(tab) {
 		this.setState({
 			selectedTab: tab
 		});
@@ -82,11 +75,13 @@ class Profile extends Component {
 	}
 	
 	render() {
+		console.log(this.props);
 		const {
 			personalInfo,
 			opinions,
 			followers,
-			following
+			following,
+			url
 		} = this.props;
 		
 		const {
@@ -101,6 +96,13 @@ class Profile extends Component {
 			likesNumb: 6
 		}
 		
+		const profileInfo = {
+			[TABS.opinions] : () => renderOpinions(opinions),
+			[TABS.followers]: () => renderPeople(followers),
+			[TABS.following]: () => renderPeople(following),
+			[TABS.likes]: () => renderLikes("likes")
+		};
+		
 		return(
 			<section className="profile">
 				<header className="profile-header">
@@ -109,7 +111,9 @@ class Profile extends Component {
 						customClasses="profile-header__navigation"
 						generalInfo={generalInfo} 
 						selectedTab={selectedTab}
-						changeTabHandler={this.setNewTab}/>
+						changeTabHandler={this.selectNewTab}
+						selectedTab={selectedTab}
+						path={url}/>
 				 	<section className="profile-header__edit">
 						 <TextButton 
 							 text="edit profile" 
@@ -122,7 +126,10 @@ class Profile extends Component {
 						customClasses={"profile-main__personal-card"}
 						personalInfo={personalInfo}/>
 					<section className="profile-main-center-container">
-					 	{this.showTabSelectedContent(selectedTab)}
+						<Route path={`${url}/:selectedTab?`} render={props => {
+							const tag = props.match.params.selectedTab || selectedTab;
+							return profileInfo[tag]();
+						}}/>						
 					</section>
 				</main>
 				{showModal 
@@ -136,12 +143,16 @@ class Profile extends Component {
 
 Profile.propTypes = {
 	personalInfo: PropTypes.object.isRequired,
+	selectedTab: PropTypes.string.isRequired,
 	opinions: PropTypes.array,
 	followers: PropTypes.array,
 	following: PropTypes.array,
+	url: PropTypes.string.isRequired
 };
 
 Profile.defaultProps = {
+	url: "/profile",
+	selectedTab: 'opinions',
 	followers: [1, 2, 3, 4, 6, 7, 8, 9],
 	following: [7,9,0],
 	personalInfo: {

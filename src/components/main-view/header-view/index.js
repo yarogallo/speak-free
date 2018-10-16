@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import Modal from '../../modal';
 import WriteOpinionForm from './write-opinion-form/index';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import './header-view.css';
 
 
@@ -41,7 +41,7 @@ class HeaderView extends Component {
 		} = this.props;
 		
 		const borderBottom = {
-			borderColor: "var(--main-color-gray)" 
+			borderColor: "var(--main-color-gray)",
 		};
 		
 		const {
@@ -51,13 +51,14 @@ class HeaderView extends Component {
 		return(
 			<header className="header-view">
 				<nav className="header-view-navigation">
-					<Link to="/home" 
-						className="header-view-navigation__item header-view-navigation__item_blue"
-						style={activeTab === TABS.home ? borderBottom : {}}>home</Link>
-					<Link 
+					<NavLink 
+						className="header-view-navigation__item header-view-navigation__item_blue" 
+						to= "/home" 
+						activeStyle={borderBottom}>home</NavLink>
+					<NavLink 
 						to="/profile" 
 						className="header-view-navigation__item header-view-navigation__item_lila"
-						style={activeTab === TABS.profile ? borderBottom : {}}>profile</Link>
+						activeStyle={borderBottom}>profile</NavLink>
 					<div className="header-view-navigation__item">
 						<button 
 							type="button"
