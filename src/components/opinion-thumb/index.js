@@ -66,7 +66,7 @@ class OpinionThumbnail extends Component {
 						allowEdit={editable}
 						onClickEdit={this.toggleEditMode}/>						
 						{showComments ? <CommentsList/> : null}
-					<div className="opinion-thumb__separator"></div>
+					<div className="opinion-thumb__br"></div>
 				</footer>
 			</article>
 		);

@@ -12,8 +12,9 @@ import { Route } from 'react-router-dom';
 function renderOpinions(opinions) {
 	return opinions.map((opinionThum, index) => {
 		return (
-			<div key={index}>
-				<OpinionThumbnail opinionThum={opinionThum}/>
+			<div key={index} className="profile-main__opinion-thumb">
+				<OpinionThumbnail 
+					opinionThum={opinionThum}/>
 			</div>
 		);
 	});
@@ -100,7 +101,7 @@ class Profile extends Component {
 			[TABS.opinions] : () => renderOpinions(opinions),
 			[TABS.followers]: () => renderPeople(followers),
 			[TABS.following]: () => renderPeople(following),
-			[TABS.likes]: () => renderLikes("likes")
+			[TABS.likes]: () => renderOpinions(opinions)
 		};
 		
 		return(

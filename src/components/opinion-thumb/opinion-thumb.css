@@ -1,9 +1,10 @@
 .opinion-thumb {
 	width: calc(100% - 20px);
 	background-color: var(--main-color-white);
-	padding: 5px 10px 5px 10px;
+	padding: 5px 10px 0 10px;
 	color: var(--main-color-gray);
 	position: relative;
+	border-radius: 10px;
 }
 
 .opinion-thumb__header {
