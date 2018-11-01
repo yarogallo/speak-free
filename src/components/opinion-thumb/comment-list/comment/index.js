@@ -24,7 +24,6 @@ function Comment(props) {
 			<footer className="comment__footer">
 				<ul className="comment__list">
 					<li><TextButton text="like" customClasses="comment__button"/></li>
-					<li><TextButton text="dislike" customClasses="comment__button"/></li>
 				</ul>
 				<div className="comment__likes">5</div>
 			</footer>

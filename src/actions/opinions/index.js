@@ -1,30 +1,36 @@
-import { 
-	getOpinionId,
-	formattedDate 
+import {
+		CREATE_OPINION,
+		TOGGLE_OPINION_LIKE,
+		SHOW_OPINION_COMMENTS,
+		EDIT_OPINION
+} from '../constants';
+import {
+	formattedDate,
+	getOpinionId
 } from '../../helpers/utils';
 
-export const CREATE_OPINION = 'CREATE_OPINION';
-export const LIKE_OPINION = 'LIKE_OPINION';
-export const EDIT_OPINION = 'EDIT_OPINION';
-
-
-export function createOpinion(authorId, subject, body) {
+export function createOpinion(opinion) {
 	return {
 		type: CREATE_OPINION,
-		opinionId: getOpinionId(authorId),
-		authorId,
-		subject,
-		body,
-		date: formattedDate()
+		id: getOpinionId(authorId),
+		date: formattedDate,
+		comments: 0,
+		likes: 0,
+		...opinion,
 	};
 }
 
-
-export function likeOpinion(userId, opinionId) {
+export function toggleOpinionLike(opinionId) {
 	return {
-		type: LIKE_OPINION,
-		userId,
-		opinionId
+		type: TOGGLE_OPINION_LIKE,
+		opinionId,
+	};
+}
+
+export function showOpinionComments(opinionId) {
+	return {
+		type: SHOW_OPINION_COMMENTS,
+		opinionId,
 	};
 }
 
@@ -35,3 +41,6 @@ export function editOpinion(opinionId, body) {
 		body
 	};
 }
+
+
+

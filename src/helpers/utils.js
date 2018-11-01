@@ -7,6 +7,10 @@ export function formattedDate() {
 	};
 }
 
+export function createUserId (name, lastname) {
+	return `${name.toLowerCase()}_${lastname.toLowerCase()}_${Date.now()}_${name.charAt(0).toLowerCase()}_${lastname.charAt(1).toLowerCase()}`;
+}
+
 export function getCommentId(authorId, opinionId) {
 	const date = Date.now();
 	return `comment${date}-${authorId}-${opinionId}`;
